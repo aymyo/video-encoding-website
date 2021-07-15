@@ -2,7 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import { MenuIcon } from '@heroicons/react/solid';
 
 import Link from 'next/link';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 
 const Navbar: FC = () => {
   const currentPath = useRouter().pathname;
@@ -11,12 +11,9 @@ const Navbar: FC = () => {
   const checkCurrent = (path: string) => (currentPath == path ? 'underline' : '');
 
   return (
-    <header
-      id='navbar'
-      className='flex flex-wrap items-center bg-red-200 py-4 sm:py-6
-      px-8 lg:px-16 xl:px-64 xl2:px-96'>
+    <header id='navbar' className='flex flex-wrap items-center bg-red-200 responsive-full'>
       <Link href='/'>
-        <a className='text-xl font-bold '>Video Encoding UPF</a>
+        <a className='text-xl font-bold '>Video Encoding</a>
       </Link>
 
       <nav
@@ -24,7 +21,7 @@ const Navbar: FC = () => {
         flex-col bg-red-200 absolute sm:flex-row sm:relative sm:flex
         inset-0 mt-12 sm:mt-0`}>
         <Link href='/'>
-          <a className={checkCurrent('/')}>Home</a>
+          <a className={`${checkCurrent('/')} sm:hidden`}>Home</a>
         </Link>
 
         <Link href='/theory'>
