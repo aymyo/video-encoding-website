@@ -1,45 +1,50 @@
 import { useRouter } from 'next/dist/client/router';
-import Image from 'next/image';
+import { MenuIcon } from '@heroicons/react/solid';
+
 import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 
-import NavLink from './NavLink';
-
 const Navbar: FC = () => {
   const currentPath = useRouter().pathname;
-  const [isVisible, setVisibility] = useState(false);
-  const [isSubNavVisible, setSubNavVisibility] = useState(false);
+  const [display, setDisplay] = useState('hidden');
 
-  useEffect(() => {
-    document.body.style.position = isVisible ? 'fixed' : 'relative';
-  }, [isVisible, isSubNavVisible]);
+  const checkCurrent = (path: string) => (currentPath == path ? 'underline' : '');
 
   return (
-    <header id='navbar' className='flex flex-wrap items-center justify-between p-5 bg-blue-200'>
+    <header
+      id='navbar'
+      className='flex flex-wrap items-center bg-red-200 py-4 sm:py-6
+      px-8 lg:px-16 xl:px-64 xl2:px-96'>
       <Link href='/'>
-        <a className=''>Video Encoding UPF</a>
+        <a className='text-xl font-bold '>Video Encoding UPF</a>
       </Link>
 
-      <nav className='' data-visible={isVisible}>
-        <NavLink href='/' path={currentPath} className=''>
-          Inicio
-        </NavLink>
+      <nav
+        className={`ml-auto ${display} flex justify-items-end p-5 sm:p-0 gap-4 
+        flex-col bg-red-200 absolute sm:flex-row sm:relative sm:flex
+        inset-0 mt-12 sm:mt-0`}>
+        <Link href='/'>
+          <a className={checkCurrent('/')}>Home</a>
+        </Link>
 
-        <NavLink href='/acerca' path={currentPath}>
-          Acerca
-        </NavLink>
+        <Link href='/theory'>
+          <a className={checkCurrent('/theory')}>Theory</a>
+        </Link>
 
-        <NavLink href='/participa' path={currentPath}>
-          Participa
-        </NavLink>
+        <Link href='/video-lessons'>
+          <a className={checkCurrent('/video-lessons')}>Video Lessons</a>
+        </Link>
 
-        <NavLink href='/contacto' path={currentPath}>
-          Contacto
-        </NavLink>
+        <Link href='/about'>
+          <a className={checkCurrent('/about')}>About</a>
+        </Link>
       </nav>
 
-      <button className='' aria-label='Toggle Menu' onClick={() => setVisibility(!isVisible)}>
-        {/*<FontAwesomeIcon icon={isVisible ? faTimes : faBars} />*/}
+      <button
+        className='ml-auto sm:hidden'
+        aria-label='Toggle Menu'
+        onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
+        <MenuIcon className='h-6 w-6 text-black-500' />
       </button>
     </header>
   );

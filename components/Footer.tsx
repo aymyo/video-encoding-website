@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { FC } from 'react';
 
-import NavLink from './NavLink';
+import Link from 'next/link';
 
 const Footer: FC = () => (
-  <footer className=''>
+  <footer className='h-auto py-4 sm:py-6 px-8 lg:px-16 xl:px-64 xl2:px-96 bg-gray-800 text-white'>
     <div className=''>
       <small>
         Desarrollado por{' '}
@@ -16,33 +16,33 @@ const Footer: FC = () => (
     <div>
       <h6 className='subtitle'>Menú</h6>
       <nav>
-        <NavLink href='/'>Inicio</NavLink>
-        <NavLink href='/acerca'>Acerca</NavLink>
-        <NavLink href='/participa'>Participa</NavLink>
-        <NavLink href='/contacto'>Contacto</NavLink>
+        <Link href='/'>Inicio</Link>
+        <Link href='/acerca'>Acerca</Link>
+        <Link href='/participa'>Participa</Link>
+        <Link href='/contacto'>Contacto</Link>
       </nav>
     </div>
     <div>
       <h6 className='subtitle'>Sectores</h6>
       <nav>
-        <NavLink href='/sector/alimentacion'>Alimentación</NavLink>
-        <NavLink href='/sector/moda'>Moda</NavLink>
-        <NavLink href='/sector/tecnologia'>Tecnología</NavLink>
+        <Link href='/sector/alimentacion'>Alimentación</Link>
+        <Link href='/sector/moda'>Moda</Link>
+        <Link href='/sector/tecnologia'>Tecnología</Link>
       </nav>
     </div>
     <div>
       <h6 className='subtitle'>Recursos</h6>
       <nav>
-        <NavLink href='/directorio'>Directorio</NavLink>
-        <NavLink href='/preguntas-frecuentes'>Preguntas frecuentes</NavLink>
-        <NavLink href='https://wikirate.org/'>Wikirate.org</NavLink>
+        <Link href='/directorio'>Directorio</Link>
+        <Link href='/preguntas-frecuentes'>Preguntas frecuentes</Link>
+        <Link href='https://wikirate.org/'>Wikirate.org</Link>
       </nav>
     </div>
     <div>
       <h6 className='subtitle'>Legal</h6>
       <nav>
-        <NavLink href='/cookies'>Cookies</NavLink>
-        <NavLink href='/politica-de-privacidad'>Política de privacidad</NavLink>
+        <Link href='/cookies'>Cookies</Link>
+        <Link href='/politica-de-privacidad'>Política de privacidad</Link>
       </nav>
     </div>
   </footer>
