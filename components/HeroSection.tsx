@@ -1,15 +1,15 @@
 import { FC } from 'react';
 
-const HeroSection: FC = () => {
+interface HeroSectionProps {
+  title: string;
+  subtitle: string;
+}
+
+const HeroSection: FC<HeroSectionProps> = ({ title, subtitle }) => {
   return (
     <section className='mb-4 bg-red-300 responsive-contained md:py-24 flex flex-col items-center text-center'>
-      <h1 className='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-16 mb-8'>
-        Video Encoding Course
-      </h1>
-      <p className='text-xl md:text-2xl mb-16'>
-        All information related to the video part of the Image and Video Encoding Systems subject at
-        Pompeu Fabra University in Barcelona
-      </p>
+      <h1 className='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-16 mb-8'>{title}</h1>
+      <p className='text-xl md:text-2xl mb-16'>{subtitle}</p>
     </section>
   );
 };

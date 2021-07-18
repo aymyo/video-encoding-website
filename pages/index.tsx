@@ -16,7 +16,11 @@ interface HomepageProps {
 const Homepage: NextPage<HomepageProps> = ({ docs }) => {
   return (
     <Layout>
-      <HeroSection />
+      <HeroSection
+        title='Video Encoding Course'
+        subtitle=' All information related to the video part of the Image and Video Encoding Systems subject at
+        Pompeu Fabra University in Barcelona'
+      />
       <LateralSection
         title='Learn about video compression '
         subtitle='Qui sit larum in. Ullà ut desjuntá mangar eum sink molestia id commove. Provident asede seque sed eos.'

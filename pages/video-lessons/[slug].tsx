@@ -51,7 +51,8 @@ const VideoLessonPage: NextPage<VideoLessonPageProps> = ({ source, frontMatter, 
           <p className='opacity-60 mb-8'>{frontMatter.summary}</p>
 
           <YoutubeEmbed videoID={frontMatter.videoID} />
-          <main>
+
+          <main className='my-8'>
             <MDXRemote {...source} components={components} />
           </main>
 
