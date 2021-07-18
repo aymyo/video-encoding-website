@@ -1,10 +1,18 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
-    "dev:watch": "next-remote-watch ./posts",
+    "dev:watch": "next-remote-watch ./docs",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,mdx,json}' --config ./.prettierrc",
+    "precommit": "npm run format && npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
   },
   "dependencies": {
     "@heroicons/react": "^1.0.2",
