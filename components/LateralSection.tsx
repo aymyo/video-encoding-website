@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import Link from 'next/link';
+import { FC } from 'react';
 
 interface LateralSectionProps {
   side: 'right' | 'left';
@@ -28,7 +28,7 @@ const LateralSection: FC<LateralSectionProps> = ({ title, subtitle, href, cta, s
         </Link>
       </div>
       <div className='w-full h-64 flex items-center text-center bg-gray-300'>
-        <img></img>
+        <img alt=''></img>
       </div>
     </section>
   );

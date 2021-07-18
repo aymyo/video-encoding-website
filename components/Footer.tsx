@@ -1,7 +1,5 @@
-import Image from 'next/image';
-import { FC } from 'react';
-
 import Link from 'next/link';
+import { FC } from 'react';
 
 const Footer: FC = () => (
   <footer className='h-56 responsive-full bg-gray-800 text-white flex justify-between'>

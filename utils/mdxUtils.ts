@@ -20,7 +20,7 @@ export const videoFilePaths = fs
 export interface mdxDoc {
   content: string;
   data: {
-    [key: string]: any;
+    [key: string]: string;
   };
   filePath: string;
 }

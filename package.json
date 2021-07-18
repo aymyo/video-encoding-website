@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,mdx,json}' --config ./.prettierrc",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,mdx,json}' --config ./.prettierrc.json",
     "precommit": "npm run format && npm run lint"
   },
   "husky": {

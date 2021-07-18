@@ -1,4 +1,10 @@
-export default function TestComponent({ name = 'world' }) {
+import { FC } from 'react';
+
+interface TestComponentProps {
+  name?: string;
+}
+
+const TestComponent: FC<TestComponentProps> = ({ name = 'world' }) => {
   return (
     <>
       <div>Hello, {name}!</div>
@@ -12,5 +18,7 @@ export default function TestComponent({ name = 'world' }) {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
+
+export default TestComponent;

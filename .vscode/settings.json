@@ -1,9 +1,4 @@
 {
-    "cSpell.ignoreWords": [
-        "rehype"
-    ],
-    "cSpell.words": [
-        "Prettierrc",
-        "heroicons"
-    ]
+  "cSpell.ignoreWords": ["rehype"],
+  "cSpell.words": ["Prettierrc", "heroicons"]
 }

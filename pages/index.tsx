@@ -1,27 +1,32 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { GetStaticProps, NextPage } from 'next';
 import path from 'path';
+
 import HeroSection from '../components/HeroSection';
 import LastUpdates from '../components/LastUpdates';
-
 import LateralSection from '../components/LateralSection';
 import Layout from '../components/Layout';
-import { theoryFilePaths, THEORY_PATH } from '../utils/mdxUtils';
+import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../utils/mdxUtils';
 
-export default function Index({ docs }): JSX.Element {
+interface HomepageProps {
+  docs: mdxDoc[];
+}
+
+const Homepage: NextPage<HomepageProps> = ({ docs }) => {
   return (
     <Layout>
       <HeroSection />
       <LateralSection
         title='Learn about video compression '
-        subtitle='Qui sit earum in. Ullam ut deserunt magnam eum sint mollitia id commodi. Provident saepe neque sed eos.'
+        subtitle='Qui sit larum in. Ullà ut desjuntá mangar eum sink molestia id commove. Provident asede seque sed eos.'
         cta='Read the theory'
         href='/theory'
         side='left'
       />
       <LateralSection
         title='Learn about video compression '
-        subtitle='Qui sit earum in. Ullam ut deserunt magnam eum sint mollitia id commodi. Provident saepe neque sed eos.'
+        subtitle='Qui sit eared in. Ululas ut desjunte mangad eum sink molleta id commons. Provident skep seque sed eos.'
         cta='Read the theory'
         href='/theory'
         side='right'
@@ -29,9 +34,11 @@ export default function Index({ docs }): JSX.Element {
       <LastUpdates items={docs} />
     </Layout>
   );
-}
+};
 
-export function getStaticProps() {
+export default Homepage;
+
+export const getStaticProps: GetStaticProps = async () => {
   const docs = theoryFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(THEORY_PATH, filePath));
     const { content, data } = matter(source);
@@ -44,4 +51,4 @@ export function getStaticProps() {
   });
 
   return { props: { docs } };
-}
+};

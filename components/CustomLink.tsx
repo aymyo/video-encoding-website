@@ -1,6 +1,16 @@
-import Link from 'next/link'
+/* eslint-disable jsx-a11y/anchor-has-content */
+import Link from 'next/link';
+import { FC } from 'react';
 
-export default function CustomLink({ as, href, ...otherProps }) {
+interface CustomLinkProps {
+  as: string;
+  href: string;
+  otherProps: {
+    [key: string]: string;
+  };
+}
+
+const CustomLink: FC<CustomLinkProps> = ({ as, href, ...otherProps }) => {
   return (
     <>
       <Link as={as} href={href}>
@@ -12,5 +22,7 @@ export default function CustomLink({ as, href, ...otherProps }) {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
+
+export default CustomLink;

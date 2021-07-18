@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
-import Link from 'next/link';
 import { mdxDoc } from '../utils/mdxUtils';
 
 interface LastUpdatesProps {
@@ -14,7 +14,7 @@ const LastUpdates: FC<LastUpdatesProps> = ({ items }) => {
       <ul>
         {items.slice(0, 3).map((item) => (
           <li key={item.filePath} className='mb-6'>
-            <Link as={`/theory/${item.filePath.replace(/\.mdx?$/, '')}`} href={`/theory/[slug]`}>
+            <Link as={`/theory/${item.filePath.replace(/\.mdx?$/, '')}`} href={'/theory/[slug]'}>
               <a>
                 <small>{item.data.update}</small>
                 <h4 className='font-bold text-xl mb-4'>{item.data.title}</h4>

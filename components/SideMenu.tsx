@@ -1,7 +1,8 @@
-import { FC, useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
+import { FC, useState } from 'react';
+
 import { mdxDoc } from '../utils/mdxUtils';
 
 interface SideMenuProps {
@@ -25,7 +26,7 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
           className='ml-auto '
           aria-label='Toggle Menu'
           onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
-          {display === `hidden` ? (
+          {display === 'hidden' ? (
             <ChevronDownIcon className='h-6 w-6 text-black-500' />
           ) : (
             <ChevronRightIcon className='h-6 w-6 text-black-500' />
