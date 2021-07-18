@@ -2,9 +2,10 @@ import { FC, useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
+import { mdxDoc } from '../utils/mdxUtils';
 
 interface SideMenuProps {
-  items: [];
+  items: mdxDoc[];
   title: string;
   currentSlug: string;
 }

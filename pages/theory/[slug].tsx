@@ -1,16 +1,18 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import Link from 'next/link';
 import path from 'path';
 
 import SideMenu from '../../components/SideMenu';
 import CustomLink from '../../components/CustomLink';
 import Layout from '../../components/Layout';
-import { theoryFilePaths, THEORY_PATH } from '../../utils/mdxUtils';
+import { mdxDoc, theoryFilePaths, THEORY_PATH } from '../../utils/mdxUtils';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -25,7 +27,16 @@ const components = {
   Head
 };
 
-export default function TheoryPage({ source, frontMatter, docs, slug }) {
+interface TheoryPageProps {
+  source: MDXRemoteSerializeResult<Record<string, unknown>>;
+  frontMatter: {
+    [key: string]: any;
+  };
+  docs: mdxDoc[];
+  slug: string;
+}
+
+const TheoryPage: NextPage<TheoryPageProps> = ({ source, frontMatter, docs, slug }) => {
   return (
     <Layout>
       <div className='flex flex-col md:flex-row'>
@@ -69,10 +80,12 @@ export default function TheoryPage({ source, frontMatter, docs, slug }) {
       </div>
     </Layout>
   );
-}
+};
 
-export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(THEORY_PATH, `${params.slug}.mdx`);
+export default TheoryPage;
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postFilePath = path.join(THEORY_PATH, `${params?.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
@@ -86,7 +99,7 @@ export const getStaticProps = async ({ params }) => {
     scope: data
   });
 
-  const docs = theoryFilePaths.map((filePath) => {
+  const docs: mdxDoc[] = theoryFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(THEORY_PATH, filePath));
     const { content, data } = matter(source);
 
@@ -102,12 +115,12 @@ export const getStaticProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
       docs,
-      slug: params.slug
+      slug: params?.slug
     }
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = theoryFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))

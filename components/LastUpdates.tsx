@@ -1,9 +1,10 @@
 import { FC } from 'react';
 
 import Link from 'next/link';
+import { mdxDoc } from '../utils/mdxUtils';
 
 interface LastUpdatesProps {
-  items: [];
+  items: mdxDoc[];
 }
 
 const LastUpdates: FC<LastUpdatesProps> = ({ items }) => {

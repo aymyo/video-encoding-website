@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -11,7 +11,8 @@ import SideMenu from '../../components/SideMenu';
 import YoutubeEmbed from '../../components/YoutubeEmbed';
 import CustomLink from '../../components/CustomLink';
 import Layout from '../../components/Layout';
-import { videoFilePaths, VIDEO_PATH } from '../../utils/mdxUtils';
+import { mdxDoc, videoFilePaths, VIDEO_PATH } from '../../utils/mdxUtils';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -25,8 +26,16 @@ const components = {
   TestComponent: dynamic(() => import('../../components/TestComponent')),
   Head
 };
+interface VideoLessonPageProps {
+  source: MDXRemoteSerializeResult<Record<string, unknown>>;
+  frontMatter: {
+    [key: string]: any;
+  };
+  docs: mdxDoc[];
+  slug: string;
+}
 
-export default function VideoLessonViewer({ source, frontMatter, docs, slug }) {
+const TVideoLessonPage: NextPage<VideoLessonPageProps> = ({ source, frontMatter, docs, slug }) => {
   return (
     <Layout>
       <div className='flex flex-col md:flex-row'>
@@ -70,10 +79,10 @@ export default function VideoLessonViewer({ source, frontMatter, docs, slug }) {
       </div>
     </Layout>
   );
-}
+};
 
-export const getStaticProps = async ({ params }) => {
-  const videoFilePath = path.join(VIDEO_PATH, `${params.slug}.mdx`);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const videoFilePath = path.join(VIDEO_PATH, `${params?.slug}.mdx`);
   const source = fs.readFileSync(videoFilePath);
 
   const { content, data } = matter(source);
@@ -87,7 +96,7 @@ export const getStaticProps = async ({ params }) => {
     scope: data
   });
 
-  const docs = videoFilePaths.map((filePath) => {
+  const docs: mdxDoc[] = videoFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(VIDEO_PATH, filePath));
     const { content, data } = matter(source);
 
@@ -103,12 +112,12 @@ export const getStaticProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
       docs,
-      slug: params.slug
+      slug: params?.slug
     }
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = videoFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))

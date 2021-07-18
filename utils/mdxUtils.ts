@@ -16,3 +16,11 @@ export const videoFilePaths = fs
   .readdirSync(VIDEO_PATH)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path));
+
+export interface mdxDoc {
+  content: string;
+  data: {
+    [key: string]: any;
+  };
+  filePath: string;
+}
