@@ -8,9 +8,10 @@ import Link from 'next/link';
 import path from 'path';
 
 import SideMenu from '../../components/SideMenu';
+import YoutubeEmbed from '../../components/YoutubeEmbed';
 import CustomLink from '../../components/CustomLink';
 import Layout from '../../components/Layout';
-import { theoryFilePaths, THEORY_PATH } from '../../utils/mdxUtils';
+import { videoFilePaths, VIDEO_PATH } from '../../utils/mdxUtils';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -25,22 +26,22 @@ const components = {
   Head
 };
 
-export default function TheoryPage({ source, frontMatter, docs, slug }) {
+export default function VideoLessonViewer({ source, frontMatter, docs, slug }) {
   return (
     <Layout>
       <div className='flex flex-col md:flex-row'>
-        <SideMenu items={docs} title='Theory Lessons' currentSlug={slug} />
+        <SideMenu items={docs} title='Video lessons' currentSlug={slug} />
         <div className='readable responsive-full'>
           <div>
             <small className='opacity-60 mb-8'>Last update on: {frontMatter.update}</small>
             <h1 className='font-bold text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-4'>
-              {frontMatter.title}
+              Video Lesson: {frontMatter.title}
             </h1>
-            <p className='opacity-60 mb-8'>{frontMatter.summary}</p>
           </div>
-          <main>
-            <MDXRemote {...source} components={components} />
-          </main>
+
+          <p className='opacity-60 mb-8'>{frontMatter.summary}</p>
+
+          <YoutubeEmbed videoID={frontMatter.videoID} />
 
           <nav className='flex justify-between mt-64'>
             <Link href='/'>
@@ -72,8 +73,8 @@ export default function TheoryPage({ source, frontMatter, docs, slug }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(THEORY_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
+  const videoFilePath = path.join(VIDEO_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(videoFilePath);
 
   const { content, data } = matter(source);
 
@@ -86,8 +87,8 @@ export const getStaticProps = async ({ params }) => {
     scope: data
   });
 
-  const docs = theoryFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(THEORY_PATH, filePath));
+  const docs = videoFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(VIDEO_PATH, filePath));
     const { content, data } = matter(source);
 
     return {
@@ -108,7 +109,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = theoryFilePaths
+  const paths = videoFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js

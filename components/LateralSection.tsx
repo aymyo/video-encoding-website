@@ -24,7 +24,7 @@ const LateralSection: FC<LateralSectionProps> = ({ title, subtitle, href, cta, s
         <h2 className='font-bold text-3xl mb-4'>{title}</h2>
         <p className='mb-4'>{subtitle}</p>
         <Link href={href}>
-          <a className='btn-light'>{cta}</a>
+          <a className='btn'>{cta}</a>
         </Link>
       </div>
       <div className='w-full h-64 flex items-center text-center bg-gray-300'>

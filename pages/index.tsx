@@ -6,7 +6,7 @@ import LastUpdates from '../components/LastUpdates';
 
 import LateralSection from '../components/LateralSection';
 import Layout from '../components/Layout';
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils';
+import { theoryFilePaths, THEORY_PATH } from '../utils/mdxUtils';
 
 export default function Index({ docs }): JSX.Element {
   return (
@@ -32,8 +32,8 @@ export default function Index({ docs }): JSX.Element {
 }
 
 export function getStaticProps() {
-  const docs = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+  const docs = theoryFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(THEORY_PATH, filePath));
     const { content, data } = matter(source);
 
     return {
