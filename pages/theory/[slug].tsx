@@ -52,7 +52,7 @@ const TheoryPage: NextPage<TheoryPageProps> = ({ source, frontMatter, docs, slug
             <MDXRemote {...source} components={components} />
           </main>
 
-          <DocNav slug={slug} />
+          <DocNav slug={slug} docs={docs} currentSection='theory' />
         </div>
       </div>
     </Layout>

@@ -56,7 +56,7 @@ const VideoLessonPage: NextPage<VideoLessonPageProps> = ({ source, frontMatter, 
             <MDXRemote {...source} components={components} />
           </main>
 
-          <DocNav slug={slug} />
+          <DocNav slug={slug} docs={docs} currentSection='video-lessons' />
         </div>
       </div>
     </Layout>

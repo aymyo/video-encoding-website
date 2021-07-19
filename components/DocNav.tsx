@@ -1,23 +1,26 @@
 import Link from 'next/link';
 import { FC } from 'react';
 
+import { mdxDoc } from '../utils/mdxUtils';
+
 interface DocNavProps {
   slug: string;
+  docs: mdxDoc[];
+  currentSection: 'theory' | 'video-lessons';
 }
 
-const DocNav: FC<DocNavProps> = ({ slug }) => {
-  return (
-    <nav className='flex justify-between mt-64'>
-      <Link href='/'>
-        <a>
-          <span role='img' aria-label='pointing left emoji'>
-            👈
-          </span>
-          Previous
-        </a>
-      </Link>
+const DocNav: FC<DocNavProps> = ({ slug, docs, currentSection }) => {
+  const pathArray = docs?.map((doc) => {
+    return doc.filePath.slice(0, -4);
+  });
+
+  const prevDoc = pathArray && docs[pathArray?.findIndex((path) => path === slug) - 1];
+  const nextDoc = pathArray && docs[pathArray?.findIndex((path) => path === slug) + 1];
+
+  const GithubButton = ({ slug }: { slug: string }) => {
+    return (
       <Link href={`https://github.com/aymyo/video-encoding-website/blob/main/docs/${slug}.mdx`}>
-        <a className='flex items-center'>
+        <a className='btn flex items-center p-2 border-black order-last sm:order-none mx-auto'>
           <p className='mr-2'>
             Is there any error?
             <br />
@@ -30,14 +33,43 @@ const DocNav: FC<DocNavProps> = ({ slug }) => {
           </svg>
         </a>
       </Link>
-      <Link href='/'>
-        <a>
-          Next
-          <span role='img' aria-label='pointing right emoji'>
-            👉
+    );
+  };
+
+  const NavButton = ({ dir, doc }: { dir: 'prev' | 'next'; doc: mdxDoc }) => {
+    const isPrev = dir === 'prev';
+
+    if (!doc) {
+      return (
+        <div className=''>
+          <span role='img' aria-label='' className='mr-2'>
+            {isPrev ? '🔎' : '🎉'}
           </span>
-        </a>
-      </Link>
+          {isPrev ? 'Good start!' : 'Well done!'}
+        </div>
+      );
+    }
+
+    return (
+      <div className={`flex flex-col ${isPrev ? 'items-start' : 'items-end'}`}>
+        <Link href={`/${currentSection}/${doc.filePath.slice(0, -4)}`}>
+          <a className='btn p-2 border-black h-5 mb-2'>
+            <span role='img' aria-label='' className='mr-2'>
+              {isPrev ? '👈' : '👉'}
+            </span>
+            {isPrev ? 'Previous' : 'Next'}
+          </a>
+        </Link>
+        <p className='text-lg font-medium'>{doc.data.title}</p>
+      </div>
+    );
+  };
+
+  return (
+    <nav className='flex justify-between flex-wrap gap-4 items-start mt-64'>
+      <NavButton dir='prev' doc={prevDoc} />
+      <GithubButton slug={slug} />
+      <NavButton dir='next' doc={nextDoc} />
     </nav>
   );
 };
