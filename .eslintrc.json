@@ -29,7 +29,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true, "endOfLine": "auto" }],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",

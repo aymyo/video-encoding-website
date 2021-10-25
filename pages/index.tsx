@@ -29,10 +29,10 @@ const Homepage: NextPage<HomepageProps> = ({ docs }) => {
         side='left'
       />
       <LateralSection
-        title='Learn about video compression '
+        title='Watch the video lesssons'
         subtitle='Qui sit eared in. Ululas ut desjunte mangad eum sink molleta id commons. Provident skep seque sed eos.'
-        cta='Read the theory'
-        href='/theory'
+        cta='Watch videos'
+        href='/video-lessons'
         side='right'
       />
       <LastUpdates items={docs} />
