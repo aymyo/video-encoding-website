@@ -25,7 +25,8 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
         <button
           className='ml-auto '
           aria-label='Toggle Menu'
-          onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
+          onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}
+        >
           {display === 'hidden' ? (
             <ChevronDownIcon className='h-6 w-6 text-black-500' />
           ) : (
@@ -36,17 +37,20 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
 
       <nav
         className={`${display} sm:p-0 md:flex 
-        inset-0 mt-4 md:mt-0 `}>
+        inset-0 mt-4 md:mt-0 `}
+      >
         <ol className='w-full flex flex-col gap-2 '>
           {items.map((post) => (
             <li key={post.filePath} className=' last:mb-0 '>
               <Link
                 as={`${currentSection}/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`${currentSection}/[slug]`}>
+                href={`${currentSection}/[slug]`}
+              >
                 <a
                   className={`font-medium text-lg ${checkCurrent(
                     post.filePath.replace(/\.mdx?$/, '')
-                  )}`}>
+                  )}`}
+                >
                   {post.data.title}
                 </a>
               </Link>

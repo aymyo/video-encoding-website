@@ -16,7 +16,8 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ videoID }) => {
           frameBorder='0'
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
           allowFullScreen
-          title='Embedded youtube'></iframe>
+          title='Embedded youtube'
+        ></iframe>
       </div>
       <style jsx>{`
         div {

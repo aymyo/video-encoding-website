@@ -16,7 +16,8 @@ const Navbar: FC = () => {
       <nav
         className={`ml-auto ${display} flex justify-items-end p-5 sm:p-0 gap-4 
         flex-col bg-red-200 absolute sm:flex-row sm:relative sm:flex
-        inset-0 mt-12 sm:mt-0`}>
+        inset-0 mt-12 sm:mt-0`}
+      >
         <NavLink href='/' anchorClassName='sm:hidden' text='Home' />
 
         <NavLink href='/theory' text='Theory' />
@@ -35,7 +36,8 @@ const Navbar: FC = () => {
       <button
         className='ml-auto sm:hidden'
         aria-label='Toggle Menu'
-        onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
+        onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}
+      >
         <MenuIcon className='h-6 w-6 text-black-500' />
       </button>
     </header>
