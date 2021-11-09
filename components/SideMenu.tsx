@@ -19,7 +19,7 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
   const checkCurrent = (path: string) => (currentSlug == path ? 'underline' : '');
 
   return (
-    <div className='flex flex-col text-gray-600 bg-gray-200 md:bg-transparent responsive-full md:max-w-sm md:pr-4 '>
+    <div className='flex flex-col text-gray-600 bg-gray-200 md:bg-transparent responsive-full md:min-w-max md:pr-4 '>
       <div className='flex flex-row md:hidden'>
         <p>{title}</p>
         <button
@@ -37,7 +37,7 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
 
       <nav
         className={`${display} sm:p-0 md:flex 
-        inset-0 mt-4 md:mt-0 `}
+        inset-0 mt-4 md:mt-0`}
       >
         <ol className='w-full flex flex-col gap-2 '>
           {items.map((post) => (
@@ -61,21 +61,5 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
     </div>
   );
 };
-
-// const SideMenu: FC<SideMenuProps> = ({ items }) => {
-//   return (
-//     <nav className='flex flex-col md:flex-row w-96 top-0 text-gray-600'>
-//       <ol>
-//         {items.map((post) => (
-//           <li key={post.filePath} className='mb-2'>
-//             <Link as={`/theory/${post.filePath.replace(/\.mdx?$/, '')}`} href={`/theory/[slug]`}>
-//               <a className='font-medium text-lg'>{post.data.title}</a>
-//             </Link>
-//           </li>
-//         ))}
-//       </ol>
-//     </nav>
-//   );
-// };
 
 export default SideMenu;
