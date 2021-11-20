@@ -5,7 +5,6 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import path from 'path';
 
-import LastUpdates from '../components/LastUpdates';
 import Layout from '../components/Layout';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../utils/mdxUtils';
 
@@ -30,7 +29,6 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ docs }) => {
           </Link>
         </div>
       </section>
-      <LastUpdates items={docs} />
     </Layout>
   );
 };

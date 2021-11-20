@@ -1,4 +1,4 @@
-import { MenuIcon } from '@heroicons/react/solid';
+import { MenuIcon, XCircleIcon, XIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 
@@ -17,9 +17,8 @@ const Navbar: FC = () => {
       </Link>
 
       <nav
-        className={`ml-auto w-3/4 max-w-4xl ${display} bg-bgPrimary sm:justify-between sm:p-0
-        flex-col absolute sm:flex-row sm:relative sm:flex
-        inset-0 mt-20 sm:mt-0`}>
+        className={`ml-auto inset-0 max-w-4xl flex-col fixed p-16 text-2xl gap-4 z-50 ${display} bg-bgPrimary sm:justify-between sm:w-3/4
+         sm:flex sm:flex-row sm:relative sm:p-0 sm:text-base`}>
         <NavLink href='/' anchorClassName='sm:hidden' text='Home' />
 
         <NavLink href='/theory' text='Theory' />
@@ -32,10 +31,14 @@ const Navbar: FC = () => {
       </nav>
 
       <button
-        className='ml-auto sm:hidden'
+        className={`ml-auto sm:hidden z-50  ${display == 'hidden' ? '' : 'fixed right-8'}`}
         aria-label='Toggle Menu'
         onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
-        <MenuIcon className='h-6 w-6 text-black-500' />
+        {display == 'hidden' ? (
+          <MenuIcon className='h-6 w-6 text-black-500' />
+        ) : (
+          <XIcon className='h-6 w-6 text-black-500' />
+        )}
       </button>
     </header>
   );
