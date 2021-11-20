@@ -2,33 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: #f9f2e7;
+  --background-secondary: #f5d1be;
+  --text-primary: #191919;
+  --text-secondary: #b8ad9a;
+  --accent-primary: #ea5959;
+  --accent-secondary: #789c8d;
+}
+
 @layer components {
   .btn {
     @apply px-5 py-2 inline-block box-content rounded-md text-sm font-medium text-black bg-transparent outline-none border border-red-600 transition-all;
-  }
-  .btn-primary {
-    @apply bg-red-500 text-white;
-  }
-  .btn:focus {
-    @apply outline-none m-0 border border-red-200;
-  }
-  .btn:hover {
-    @apply m-0  border border-red-800 text-red-800;
-  }
-  .btn:active {
-    @apply border-gray-900 text-gray-900;
-  }
-  .btn-light {
-    @apply px-5 py-2 box-content inline-block rounded-md text-sm font-medium text-white bg-transparent outline-none border border-red-600 transition-all;
-  }
-  .btn-light:focus {
-    @apply outline-none m-0 border border-red-200;
-  }
-  .btn-light:hover {
-    @apply m-0  border border-red-800 text-red-300;
-  }
-  .btn-light:active {
-    @apply border-gray-900 text-gray-900;
   }
 }
 
@@ -58,11 +43,8 @@
 }
 
 html {
-  font: 100%/1.5 system-ui;
-}
-
-a:hover {
-  @apply text-red-500;
-  text-decoration: underline;
-  text-decoration-color: currentcolor;
+  font: 100%/1.5;
+  font-family: 'Source Sans Pro', 'ui-sans-serif', 'system-ui', '-apple-system',
+    'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }

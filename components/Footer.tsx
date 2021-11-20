@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 const Footer: FC = () => (
-  <footer className='h-56 responsive-full bg-gray-800 text-white flex justify-between'>
-    <nav className='flex flex-col justify-around text-sm md:text-base'>
+  <footer className='mt-24 responsive-full flex justify-center items-center border-t border-t-1 border-bgSecondary bg-footer-pattern bg-cover'>
+    <nav className='mt-8 mr-64 flex flex-col justify-around text-sm md:text-base gap-3'>
+      <p className='font-bold font-serif'>Sitemap</p>
       <Link href='/'>
         <a>Home</a>
       </Link>
@@ -16,28 +17,20 @@ const Footer: FC = () => (
       <Link href='/about'>
         <a>About</a>
       </Link>
-    </nav>
-
-    <div className='flex flex-col items-center justify-center'>
-      <p className='text-2xl mb-4 hidden sm:block'>Do you have any questions?</p>
-      <Link href='/contact'>
-        <a className='btn btn-light'>Contact</a>
+      <Link href='/playground'>
+        <a>Playground</a>
       </Link>
-    </div>
-    <div className='flex flex-col items-end text-right justify-around'>
-      <small>
-        Developed by <br />
-        <a href='https://github.com/aymyo' rel='noreferrer' target='_blank' className='underline'>
+      <p className='pt-32 pb-8'>
+        Developed by
+        <a
+          href='https://github.com/aymyo'
+          rel='noreferrer'
+          target='_blank'
+          className='underline ml-1'>
           @aymyo
         </a>
-      </small>
-      <small>
-        Deployed with <br />
-        <a href='https://vercel.com/' rel='noreferrer' target='_blank' className='underline'>
-          Vercel
-        </a>
-      </small>
-    </div>
+      </p>
+    </nav>
   </footer>
 );
 export default Footer;

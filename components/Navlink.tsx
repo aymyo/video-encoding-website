@@ -10,7 +10,8 @@ interface NavLinkProps {
 
 const NavLink: FC<NavLinkProps> = ({ anchorClassName = '', href, text }) => {
   const currentPath = useRouter().pathname;
-  const checkCurrent = (path: string) => (currentPath == path ? 'underline' : '');
+  const checkCurrent = (currentHref: string) =>
+    currentPath.includes(currentHref) ? 'underline' : '';
 
   return (
     <Link href={href}>

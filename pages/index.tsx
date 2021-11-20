@@ -3,9 +3,7 @@ import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
 import path from 'path';
 
-import HeroSection from '../components/HeroSection';
-import LastUpdates from '../components/LastUpdates';
-import LateralSection from '../components/LateralSection';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../utils/mdxUtils';
 
@@ -16,26 +14,47 @@ interface HomepageProps {
 const Homepage: NextPage<HomepageProps> = ({ docs }) => {
   return (
     <Layout>
-      <HeroSection
-        title='Video Encoding Course'
-        subtitle=' All information related to the video part of the Image and Video Encoding Systems subject at
-        Pompeu Fabra University in Barcelona'
-      />
-      <LateralSection
-        title='Learn about video compression '
-        subtitle='Qui sit larum in. Ullà ut desjuntá mangar eum sink molestia id commove. Provident asede seque sed eos.'
-        cta='Read the theory'
-        href='/theory'
-        side='left'
-      />
-      <LateralSection
-        title='Watch the video lesssons'
-        subtitle='Qui sit eared in. Ululas ut desjunte mangad eum sink molleta id commons. Provident skep seque sed eos.'
-        cta='Watch videos'
-        href='/video-lessons'
-        side='right'
-      />
-      <LastUpdates items={docs} />
+      <div className='responsive-full'>
+        <section className='bg-hero-pattern bg-no-repeat bg-right-top'>
+          <h2 className='text-xl pt-24 pl-48'>
+            <span className='text-accentPrimary'>{'>>>'}</span>
+            <br />
+            Learn everything about <br /> video encoding
+          </h2>
+          <h1 className='text-8xl italic font-bold font-serif pt-32 pb-56'>
+            Video Encoding <br /> Course
+          </h1>
+        </section>
+        <section className=' py-32 flex flex-col items-center '>
+          <hr className=' border-t-1 border-bgSecondary w-1/3' />
+          <h3 className='text-center text-4xl italic my-24'>
+            Learning material <br />
+            from the Pompeu Fabra University <br />
+            course taught by Javi Brines
+          </h3>
+          <hr className=' border-t-1 border-bgSecondary w-1/3' />
+        </section>
+        <section className='mt-0 flex flex-col items-center '>
+          <h3 className='font-bold text-4xl mb-8 italic font-serif'>Last updates</h3>
+          <ul>
+            {docs?.slice(0, 3).map((item) => (
+              <li key={item.filePath} className='mb-6'>
+                <Link
+                  as={`/theory/${item.filePath.replace(/\.mdx?$/, '')}`}
+                  href={'/theory/[slug]'}>
+                  <a>
+                    <small className='text-lg text-textSecondary italic font-serif font-bold'>
+                      {item.data.update}
+                    </small>
+                    <h4 className='font-bold text-xl mb-2'>{item.data.title}</h4>
+                    <p className='text-lg'>{item.data.summary}</p>
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </Layout>
   );
 };

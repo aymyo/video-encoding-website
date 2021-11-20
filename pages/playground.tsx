@@ -54,7 +54,7 @@ const Playground: NextPage<PlaygroundProps> = ({ docs }) => {
   };
 
   return (
-    <>
+    <Layout>
       <main className='responsive-full'>
         <div className='w-100 flex justify-center'>
           <label htmlFor='uploader' className='btn'>
@@ -108,7 +108,7 @@ const Playground: NextPage<PlaygroundProps> = ({ docs }) => {
           </a>
         </div>
       </main>
-    </>
+    </Layout>
   );
 };
 

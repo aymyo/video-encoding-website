@@ -5,9 +5,9 @@ import Navbar from './Navbar';
 
 const Layout: FC = ({ children }) => {
   return (
-    <div>
+    <div className='bg-bgPrimary'>
       <Navbar />
-      <div className='h-auto min-h-screen'>{children}</div>
+      <main className='h-auto min-h-screen'>{children}</main>
       <Footer />
     </div>
   );
