@@ -17,9 +17,9 @@ const Navbar: FC = () => {
       </Link>
 
       <nav
-        className={`ml-auto w-3/4 max-w-4xl ${display} justify-between sm:p-0
+        className={`ml-auto w-3/4 max-w-4xl ${display} bg-bgPrimary sm:justify-between sm:p-0
         flex-col absolute sm:flex-row sm:relative sm:flex
-        inset-0 mt-24 sm:mt-0`}>
+        inset-0 mt-20 sm:mt-0`}>
         <NavLink href='/' anchorClassName='sm:hidden' text='Home' />
 
         <NavLink href='/theory' text='Theory' />

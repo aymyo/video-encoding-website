@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 const Footer: FC = () => (
   <footer className='mt-24 responsive-full flex justify-center items-center border-t border-t-1 border-bgSecondary bg-footer-pattern bg-cover'>
-    <nav className='mt-8 mr-64 flex flex-col justify-around text-sm md:text-base gap-3'>
+    <nav className='mt-8 mr-52 flex flex-col justify-around text-sm md:text-base gap-3'>
       <p className='font-bold font-serif'>Sitemap</p>
       <Link href='/'>
         <a>Home</a>
@@ -20,8 +20,8 @@ const Footer: FC = () => (
       <Link href='/playground'>
         <a>Playground</a>
       </Link>
-      <p className='pt-32 pb-8'>
-        Developed by
+      <small className='pt-32 pb-8'>
+        Designed and developed by
         <a
           href='https://github.com/aymyo'
           rel='noreferrer'
@@ -29,7 +29,7 @@ const Footer: FC = () => (
           className='underline ml-1'>
           @aymyo
         </a>
-      </p>
+      </small>
     </nav>
   </footer>
 );
