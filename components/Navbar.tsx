@@ -8,7 +8,7 @@ const Navbar: FC = () => {
   const [display, setDisplay] = useState('hidden');
 
   return (
-    <header id='navbar' className='flex flex-wrap items-center responsive-full font-serif sm:py-4'>
+    <header id='navbar' className='flex flex-wrap items-center full-container font-serif py-4'>
       <Link href='/'>
         <a className='text-3xl font-bold italic'>
           {/*V E <br></br> C*/}
@@ -31,7 +31,7 @@ const Navbar: FC = () => {
       </nav>
 
       <button
-        className={`ml-auto sm:hidden z-50  ${display == 'hidden' ? '' : 'fixed right-8'}`}
+        className={`ml-auto sm:hidden z-50  ${display == 'hidden' ? '' : 'fixed right-4'}`}
         aria-label='Toggle Menu'
         onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
         {display == 'hidden' ? (

@@ -37,28 +37,22 @@ interface VideoLessonPageProps {
 
 const VideoLessonPage: NextPage<VideoLessonPageProps> = ({ source, frontMatter, docs, slug }) => {
   return (
-    <Layout>
-      <div className='flex flex-col md:flex-row'>
-        <SideMenu items={docs} title='Video lessons' currentSlug={slug} />
-        <div className='readable responsive-full'>
-          <div>
-            <small className='opacity-60 mb-8'>Last update on: {frontMatter.update}</small>
-            <h1 className='font-bold text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-4'>
-              Video Lesson: {frontMatter.title}
-            </h1>
-          </div>
-
-          <p className='opacity-60 mb-8'>{frontMatter.summary}</p>
-
-          <YoutubeEmbed videoID={frontMatter.videoID} />
-
-          <main className='my-8'>
-            <MDXRemote {...source} components={components} />
-          </main>
-
-          <DocNav slug={slug} docs={docs} currentSection='video-lessons' />
-        </div>
+    <Layout mainClass='full-container grid md:grid-cols-4 gap-x-4 relative'>
+      <div className='order-1 md:col-start-2 mb-16 mt-8 col-span-3'>
+        <h1 className='font-bold font-serif text-3xl md:text-5xl '>
+          Video Lesson: {frontMatter.title}
+        </h1>
+        {/*<p className='font-lg'>{frontMatter.summary}</p>*/}
+        <small className='text-textSecondary font-serif font-normal text-lg italic mb-8'>
+          Last update on: <b>{frontMatter.update}</b>
+        </small>
       </div>
+      <SideMenu items={docs} title='Content' currentSlug={slug} />
+      <main className='order-3 col-span-3'>
+        <YoutubeEmbed videoID={frontMatter.videoID} />
+        <MDXRemote {...source} components={components} />
+        <DocNav slug={slug} docs={docs} currentSection='video-lessons' />
+      </main>
     </Layout>
   );
 };

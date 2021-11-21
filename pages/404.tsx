@@ -16,7 +16,7 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ docs }) => {
   const path = useRouter().asPath;
   return (
     <Layout>
-      <section className='h-full block bg-red-50 responsive-contained md:py-32'>
+      <section className='h-full block bg-red-50 md:py-32'>
         <h1 className='font-normal text-lg sm:text-xl md:text-xl lg:text-xl mt-16 mb-8'>
           Error 404: Page not found
         </h1>

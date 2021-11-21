@@ -55,59 +55,57 @@ const Playground: NextPage<PlaygroundProps> = ({ docs }) => {
 
   return (
     <Layout>
-      <main className='responsive-full'>
-        <div className='w-100 flex justify-center'>
-          <label htmlFor='uploader' className='btn'>
-            Upload your video
-          </label>
-          <input
-            type='file'
-            id='uploader'
-            className=' hidden'
-            onChange={(e) => setUploadedFile(e.target.files ? e.target.files[0] : null)}
-          />
-        </div>
-        {uploadedFile ? (
-          <p className='my-3 flex justify-center'>
-            {uploadedFile.name}, {formatBytes(uploadedFile.size)}, {uploadedFile.type}.
-          </p>
-        ) : (
-          ''
-        )}
-        <video src={videoSrc} controls className='mx-auto my-8'></video>
-        <div className='mb-8 flex justify-center'>
-          <div className='w-64'>
-            <p className='text-center'>{progress} %</p>
-            <div className='my-2 h-2 w-100 bg-gray-100 rounded-lg'>
-              <div
-                className='h-2 w-0 bg-red-900 rounded-lg'
-                style={{ minWidth: `${progress}%` }}></div>
-            </div>
-            <p className='text-center'>{message}</p>
+      <div className='w-100 flex justify-center'>
+        <label htmlFor='uploader' className='btn'>
+          Upload your video
+        </label>
+        <input
+          type='file'
+          id='uploader'
+          className=' hidden'
+          onChange={(e) => setUploadedFile(e.target.files ? e.target.files[0] : null)}
+        />
+      </div>
+      {uploadedFile ? (
+        <p className='my-3 flex justify-center'>
+          {uploadedFile.name}, {formatBytes(uploadedFile.size)}, {uploadedFile.type}.
+        </p>
+      ) : (
+        ''
+      )}
+      <video src={videoSrc} controls className='mx-auto my-8'></video>
+      <div className='mb-8 flex justify-center'>
+        <div className='w-64'>
+          <p className='text-center'>{progress} %</p>
+          <div className='my-2 h-2 w-100 bg-gray-100 rounded-lg'>
+            <div
+              className='h-2 w-0 bg-red-900 rounded-lg'
+              style={{ minWidth: `${progress}%` }}></div>
           </div>
+          <p className='text-center'>{message}</p>
         </div>
-        <div className='flex align-middle justify-center'>
-          {progress === 0 ? (
-            <button onClick={doTranscode} className='mr-4 btn'>
-              Start
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                //Dirty workaround to empty memory
-                window.location.reload();
-                // PROBAR LO DEL WEB WORKER
-              }}
-              className='mr-4 btn'>
-              Reload
-            </button>
-          )}
+      </div>
+      <div className='flex align-middle justify-center'>
+        {progress === 0 ? (
+          <button onClick={doTranscode} className='mr-4 btn'>
+            Start
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              //Dirty workaround to empty memory
+              window.location.reload();
+              // PROBAR LO DEL WEB WORKER
+            }}
+            className='mr-4 btn'>
+            Reload
+          </button>
+        )}
 
-          <a href={videoSrc} download className='btn'>
-            Download Me!
-          </a>
-        </div>
-      </main>
+        <a href={videoSrc} download className='btn'>
+          Download Me!
+        </a>
+      </div>
     </Layout>
   );
 };

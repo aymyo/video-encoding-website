@@ -10,7 +10,7 @@ interface AboutPageProps {
 const AboutPage: NextPage<AboutPageProps> = () => {
   return (
     <Layout>
-      <section className='h-full block bg-red-50 responsive-contained md:py-32'>
+      <section className='h-full block bg-red-50 md:py-32'>
         <h1 className='font-normal text-lg sm:text-xl md:text-xl lg:text-xl mt-16 mb-8'>About</h1>
         <div className='text-xl md:text-2xl mb-16'>
           <p className='mb-8'>It seems like the page is not here...</p>
