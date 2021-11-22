@@ -5,26 +5,26 @@
   h4,
   h5,
   h6 {
-    @apply font-serif font-bold;
+    @apply font-serif font-bold mt-8;
   }
 
   h1 {
-    @apply text-3xl md:text-5xl mb-5;
+    @apply text-3xl md:text-5xl mb-8;
   }
   h2 {
-    @apply text-2xl md:text-3xl mb-4;
+    @apply text-2xl md:text-3xl mb-6;
   }
   h3 {
-    @apply text-xl md:text-2xl mb-3;
+    @apply text-xl md:text-2xl mb-4;
   }
   h4 {
-    @apply text-lg md:text-xl mb-2;
+    @apply text-lg md:text-xl mb-3;
   }
   h5 {
-    @apply text-base md:text-lg mb-1;
+    @apply text-base md:text-lg mb-2;
   }
   h6 {
-    @apply text-sm md:text-lg mb-0.5;
+    @apply text-sm md:text-lg mb-1;
   }
   hr {
     @apply border-0 border-t border-solid border-bgSecondary mb-4;
@@ -51,6 +51,13 @@
         top: 10px;
         @apply w-1 border border-accentPrimary absolute rounded;
       }
+      & > ul > li:before {
+        @apply rounded-none;
+      }
+      & > ul > li > ul > li:before {
+        @apply rounded-none;
+        transform: rotate(45deg);
+      }
     }
   }
   ol {
@@ -58,5 +65,66 @@
     & li::marker {
       @apply text-accentPrimary font-serif text-lg;
     }
+  }
+  pre > code {
+    @apply font-mono rounded my-2 py-2 px-3 opacity-90 text-sm;
+  }
+  p > code {
+    @apply bg-bgSecondary rounded py-0.5 px-1.5 text-sm;
+  }
+  p {
+    @apply mb-1 text-justify;
+  }
+  table {
+    @apply font-sans border my-8 mx-auto;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    th,
+    td {
+      @apply border border-textSecondary px-2 py-1;
+    }
+    hr {
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      margin-left: auto;
+      margin-right: auto;
+      border-style: inset;
+      border-width: 1px;
+    }
+    td {
+      display: table-cell;
+      vertical-align: inherit;
+    }
+    tr {
+      display: table-row;
+      vertical-align: inherit;
+      border-color: inherit;
+    }
+    th {
+      display: table-cell;
+      vertical-align: inherit;
+      font-weight: bold;
+      text-align: center;
+    }
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+      border-color: inherit;
+    }
+    tfoot {
+      display: table-footer-group;
+      vertical-align: middle;
+      border-color: inherit;
+    }
+    thead {
+      display: table-header-group;
+      vertical-align: middle;
+      border-color: inherit;
+    }
+  }
+  img {
+    @apply py-4;
   }
 }

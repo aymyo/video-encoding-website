@@ -14,6 +14,13 @@ import Layout from '../../components/Layout';
 import SideMenu from '../../components/SideMenu';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../../utils/mdxUtils';
 
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+import python from 'highlight.js/lib/languages/python';
+import { useEffect } from 'react';
+hljs.registerLanguage('python', python);
+
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -37,6 +44,10 @@ interface TheoryPageProps {
 }
 
 const TheoryPage: NextPage<TheoryPageProps> = ({ source, frontMatter, docs, slug }) => {
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, []);
+
   return (
     <Layout mainClass='full-container grid md:grid-cols-4 gap-x-4 relative'>
       <div className='order-1 md:col-start-2 mb-16 mt-8 col-span-3'>

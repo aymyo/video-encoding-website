@@ -20,17 +20,17 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
 
   return (
     <div
-      className=' order-first md:order-3 col-span-4 md:col-span-1 sticky top-0
+      className='z-40 order-first md:order-3 col-span-4 md:col-span-1 sticky top-0
     flex flex-col p-4 md:p-0 md:pr-4 bg-bgSecondary md:bg-transparent -mt-4 -mx-4 md:m-0'>
       <button
-        className='flex flex-row md:hidden z-50'
+        className='flex flex-row md:hidden z-50 items-center justify-between'
         aria-label='Toggle Menu'
         onClick={() => setDisplay(display == 'hidden' ? 'flex' : 'hidden')}>
-        <p className='text-lg font-bold font-serif'>{title}</p>
+        <span className='text-lg font-bold font-serif'>{title}</span>
         {display === 'hidden' ? (
-          <ChevronDownIcon className='ml-auto h-6 w-6 text-black-500' />
+          <ChevronDownIcon className='h-6 w-6 text-black-500' />
         ) : (
-          <ChevronRightIcon className='ml-auto h-6 w-6 text-black-500' />
+          <ChevronRightIcon className='h-6 w-6 text-black-500' />
         )}
       </button>
 
