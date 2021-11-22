@@ -13,13 +13,16 @@
 
 @layer components {
   .btn {
-    @apply px-5 py-2 inline-block box-content rounded-md text-sm font-medium bg-transparent outline-none border text-accentPrimary border-accentPrimary transition-all;
+    @apply px-3 pt-0.5 pb-1 text-center inline-block box-content rounded font-serif italic font-bold bg-transparent outline-none border text-accentPrimary border-accentPrimary transition-all;
   }
   .btn:hover {
     @apply text-bgPrimary bg-accentPrimary transition-all duration-75;
   }
   .full-container {
     @apply max-w-6xl mx-auto px-4;
+  }
+  .input {
+    @apply bg-transparent border border-accentPrimary text-accentPrimary rounded py-0.5 px-1 italic cursor-pointer;
   }
 }
 

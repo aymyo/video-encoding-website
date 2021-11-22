@@ -14,9 +14,9 @@ interface HomepageProps {
 const Homepage: NextPage<HomepageProps> = ({ docs }) => {
   return (
     <Layout>
-      <section className='bg-hero-pattern bg-no-repeat bg-contain bg-center sm:bg-right-top sm:bg-local'>
+      <section className='bg-hero-pattern bg-opacity-50 bg-no-repeat bg-contain bg-center sm:bg-right-top sm:bg-local'>
         <h2 className='text-xl pt-4 pl-4 sm:pt-24 sm:pl-48'>
-          <span className='text-accentPrimary'>{'>>>'}</span>
+          <span className='text-accentPrimary font-serif'>{'>>>'}</span>
           <br />
           Learn everything about <br /> video encoding
         </h2>

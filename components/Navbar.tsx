@@ -27,7 +27,7 @@ const Navbar: FC = () => {
 
         <NavLink href='/about' text='About' />
 
-        <NavLink href='/playground' text='Playground' />
+        <NavLink href='/video-encoder-converter-online' text='Tools' />
       </nav>
 
       <button

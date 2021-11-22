@@ -2,7 +2,7 @@ module.exports = {
     async headers() {
       return [
         {
-          source: '/playground',
+          source: '/video-encoder-converter-online',
           headers: [
             {
               key: 'Cross-Origin-Opener-Policy',

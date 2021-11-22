@@ -1,8 +1,10 @@
 {
   "cSpell.ignoreWords": ["rehype"],
   "cSpell.words": [
+    "Embedder",
     "fontsource",
     "heroicons",
+    "Navlink",
     "Playfair",
     "Prettierrc"
   ]

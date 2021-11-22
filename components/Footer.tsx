@@ -18,8 +18,8 @@ const Footer: FC = () => (
         <Link href='/about'>
           <a>About</a>
         </Link>
-        <Link href='/playground'>
-          <a>Playground</a>
+        <Link href='/video-encoder-converter-online'>
+          <a>Tools</a>
         </Link>
         <small className='pt-32 pb-8'>
           Designed and developed by
