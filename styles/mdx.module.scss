@@ -1,0 +1,62 @@
+.mdx {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold;
+  }
+
+  h1 {
+    @apply text-3xl md:text-5xl mb-5;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl mb-4;
+  }
+  h3 {
+    @apply text-xl md:text-2xl mb-3;
+  }
+  h4 {
+    @apply text-lg md:text-xl mb-2;
+  }
+  h5 {
+    @apply text-base md:text-lg mb-1;
+  }
+  h6 {
+    @apply text-sm md:text-lg mb-0.5;
+  }
+  hr {
+    @apply border-0 border-t border-solid border-bgSecondary mb-4;
+  }
+  blockquote {
+    @apply italic font-serif text-lg relative pl-4 my-1;
+    &:before {
+      content: ' ';
+      height: 100%;
+      min-width: 1px;
+      left: 0;
+      @apply w-1 border-r border-l border-accentPrimary absolute;
+    }
+  }
+  ul {
+    @apply pl-6 my-1;
+    & > li {
+      @apply pl-4 relative;
+      &:before {
+        content: ' ';
+        height: 6px;
+        min-width: 6px;
+        left: 0px;
+        top: 10px;
+        @apply w-1 border border-accentPrimary absolute rounded;
+      }
+    }
+  }
+  ol {
+    @apply list-decimal pl-10 my-1;
+    & li::marker {
+      @apply text-accentPrimary font-serif text-lg;
+    }
+  }
+}

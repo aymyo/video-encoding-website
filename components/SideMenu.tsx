@@ -45,7 +45,7 @@ const SideMenu: FC<SideMenuProps> = ({ items, title, currentSlug }) => {
                 as={`${currentSection}/${post.filePath.replace(/\.mdx?$/, '')}`}
                 href={`${currentSection}/[slug]`}>
                 <a
-                  className={`font-medium text-base text-textPrimary ${checkCurrent(
+                  className={`hover:text-accentPrimary font-medium text-base text-textPrimary ${checkCurrent(
                     post.filePath.replace(/\.mdx?$/, '')
                   )}`}>
                   {post.data.title}

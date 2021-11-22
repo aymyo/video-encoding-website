@@ -12,17 +12,16 @@ interface CustomLinkProps {
 
 const CustomLink: FC<CustomLinkProps> = ({ as, href, ...otherProps }) => {
   return (
-    <>
-      <Link as={as} href={href}>
-        <a {...otherProps} />
-      </Link>
-      <style jsx>{`
-        a {
-          color: tomato;
-        }
-      `}</style>
-    </>
+    <Link as={as} href={href}>
+      <a className='link font-sans ' {...otherProps} />
+    </Link>
   );
 };
 
 export default CustomLink;
+
+/* <style jsx>{`
+        a {
+          color: tomato;
+        }
+      `}</style>*/

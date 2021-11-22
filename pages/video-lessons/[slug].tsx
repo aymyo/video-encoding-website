@@ -50,7 +50,9 @@ const VideoLessonPage: NextPage<VideoLessonPageProps> = ({ source, frontMatter, 
       <SideMenu items={docs} title='Content' currentSlug={slug} />
       <main className='order-3 col-span-3'>
         <YoutubeEmbed videoID={frontMatter.videoID} />
-        <MDXRemote {...source} components={components} />
+        <div className='mdx'>
+          <MDXRemote {...source} components={components} />
+        </div>
         <DocNav slug={slug} docs={docs} currentSection='video-lessons' />
       </main>
     </Layout>

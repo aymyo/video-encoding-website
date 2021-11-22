@@ -19,10 +19,10 @@
     @apply text-bgPrimary bg-accentPrimary transition-all duration-75;
   }
   .link {
-    @apply font-serif italic underline;
+    @apply font-serif underline;
   }
   .link:hover {
-    @apply text-accentPrimary underline;
+    @apply text-accentPrimary italic underline;
   }
   .full-container {
     @apply max-w-6xl mx-auto px-4;

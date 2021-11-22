@@ -7,6 +7,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 
+import styles from '../../styles/mdx.module.scss';
 import CustomLink from '../../components/CustomLink';
 import DocNav from '../../components/DocNav';
 import Layout from '../../components/Layout';
@@ -47,7 +48,9 @@ const TheoryPage: NextPage<TheoryPageProps> = ({ source, frontMatter, docs, slug
       </div>
       <SideMenu items={docs} title='Content' currentSlug={slug} />
       <main className='order-3 col-span-3'>
-        <MDXRemote {...source} components={components} />
+        <div className={styles.mdx}>
+          <MDXRemote {...source} components={components} />
+        </div>
         <DocNav slug={slug} docs={docs} currentSection='theory' />
       </main>
     </Layout>
