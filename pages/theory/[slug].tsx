@@ -51,7 +51,7 @@ const TheoryPage: NextPage<TheoryPageProps> = ({ source, frontMatter, docs, slug
   return (
     <Layout mainClass='full-container grid md:grid-cols-4 gap-x-4 relative'>
       <div className='order-1 md:col-start-2 mb-16 mt-8 col-span-3'>
-        <h1 className='font-bold font-serif text-3xl md:text-5xl '>{frontMatter.title}</h1>
+        <h1 className='font-bold font-serif text-3xl md:text-5xl mb-2'>{frontMatter.title}</h1>
         {/*<p className='font-lg'>{frontMatter.summary}</p>*/}
         <small className='text-textSecondary font-serif font-normal text-lg italic mb-8'>
           Last update on: <b>{frontMatter.update}</b>

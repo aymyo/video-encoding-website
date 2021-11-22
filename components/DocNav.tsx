@@ -79,7 +79,7 @@ const NavButton = ({ dir, doc, currentSection }: NavProps) => {
 
   return (
     <Link href={`/${currentSection}/${doc.filePath.slice(0, -4)}`}>
-      <a className=' my-auto flex items-center gap-3 text-lg font-serif underline hover:text-accentPrimary'>
+      <a className=' my-auto flex items-center gap-3 text-lg font-serif hover:underline hover:text-accentPrimary'>
         {isPrev ? (
           <>
             <SvgIconNext rotateDegrees='0' />

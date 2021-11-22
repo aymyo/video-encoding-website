@@ -40,7 +40,7 @@
     }
   }
   ul {
-    @apply pl-6 my-1;
+    @apply pl-6 my-2;
     & > li {
       @apply pl-4 relative;
       &:before {
@@ -61,7 +61,7 @@
     }
   }
   ol {
-    @apply list-decimal pl-10 my-1;
+    @apply list-decimal pl-10 my-2;
     & li::marker {
       @apply text-accentPrimary font-serif text-lg;
     }
