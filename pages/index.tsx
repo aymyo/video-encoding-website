@@ -38,15 +38,15 @@ const Homepage: NextPage<HomepageProps> = ({ docs }) => {
         <ul>
           {docs?.slice(0, 3).map((item) => (
             <li key={item.filePath} className='mb-6'>
+              <small className='text-lg text-textSecondary italic font-serif font-bold'>
+                {item.data.update}
+              </small>
               <Link as={`/theory/${item.filePath.replace(/\.mdx?$/, '')}`} href={'/theory/[slug]'}>
                 <a>
-                  <small className='text-lg text-textSecondary italic font-serif font-bold'>
-                    {item.data.update}
-                  </small>
-                  <h4 className='font-bold text-xl mb-2'>{item.data.title}</h4>
-                  <p className='text-lg'>{item.data.summary}</p>
+                  <h4 className='font-bold text-xl mb-2 link'>{item.data.title}</h4>
                 </a>
               </Link>
+              <p className='text-lg'>{item.data.summary}</p>
             </li>
           ))}
         </ul>

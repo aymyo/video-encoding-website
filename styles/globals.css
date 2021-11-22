@@ -18,6 +18,12 @@
   .btn:hover {
     @apply text-bgPrimary bg-accentPrimary transition-all duration-75;
   }
+  .link {
+    @apply font-serif italic underline;
+  }
+  .link:hover {
+    @apply text-accentPrimary underline;
+  }
   .full-container {
     @apply max-w-6xl mx-auto px-4;
   }

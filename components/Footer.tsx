@@ -4,22 +4,22 @@ import { FC } from 'react';
 const Footer: FC = () => (
   <footer className='mt-24 flex justify-center items-center border-t border-t-1 border-bgSecondary bg-footer-pattern bg-cover'>
     <div className='full-container'>
-      <nav className='mt-8 mr-52 flex flex-col justify-around text-sm md:text-base gap-3'>
+      <nav className='mt-8 mr-52 flex flex-col justify-around text-sm gap-3'>
         <p className='font-bold font-serif'>Sitemap</p>
         <Link href='/'>
-          <a>Home</a>
+          <a className='link  no-underline'>Home</a>
         </Link>
         <Link href='/theory'>
-          <a>Theory</a>
+          <a className='link  no-underline'>Theory</a>
         </Link>
         <Link href='/video-lessons'>
-          <a>Video Lessons</a>
+          <a className='link  no-underline'>Video Lessons</a>
         </Link>
         <Link href='/about'>
-          <a>About</a>
+          <a className='link  no-underline'>About</a>
         </Link>
         <Link href='/video-encoder-converter-online'>
-          <a>Tools</a>
+          <a className='link  no-underline'>Tools</a>
         </Link>
         <small className='pt-32 pb-8'>
           Designed and developed by
@@ -27,7 +27,7 @@ const Footer: FC = () => (
             href='https://github.com/aymyo'
             rel='noreferrer'
             target='_blank'
-            className='underline ml-1'>
+            className='link font-bold ml-1'>
             @aymyo
           </a>
         </small>

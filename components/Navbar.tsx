@@ -10,9 +10,14 @@ const Navbar: FC = () => {
   return (
     <header id='navbar' className='flex flex-wrap items-center full-container font-serif py-4'>
       <Link href='/'>
-        <a className='text-3xl font-bold italic'>
-          {/*V E <br></br> C*/}
-          <img src='/img/logo.svg' width='56px'></img>
+        <a className='text-3xl font-bold italic' style={{}}>
+          <img
+            onMouseOver={(e) => ((e.target as HTMLImageElement).src = '/img/logo.svg')}
+            onMouseOut={(e) => ((e.target as HTMLImageElement).src = '/img/logo-dotted.svg')}
+            src='/img/logo-dotted.svg'
+            className='block'
+            width='56px'></img>
+          <img src='/img/logo-dotted.svg' className='hidden' width='56px'></img>
         </a>
       </Link>
 

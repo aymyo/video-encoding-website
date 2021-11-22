@@ -15,7 +15,7 @@ const NavLink: FC<NavLinkProps> = ({ anchorClassName = '', href, text }) => {
 
   return (
     <Link href={href}>
-      <li className='list-none cursor-default flex flex-col justify-center'>
+      <li className='list-none cursor-default flex flex-col justify-center hover:text-accentPrimary hover:underline'>
         <a className={`${checkCurrent(href)} cursor-pointer ${anchorClassName}`}>{text}</a>
       </li>
     </Link>
