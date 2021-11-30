@@ -16,19 +16,26 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ docs }) => {
   const path = useRouter().asPath;
   return (
     <Layout>
-      <section className='h-full block bg-red-50 md:py-32'>
-        <h1 className='font-normal text-lg sm:text-xl md:text-xl lg:text-xl mt-16 mb-8'>
-          Error 404: Page not found
-        </h1>
-        <div className='text-xl md:text-2xl mb-16'>
-          <p className='mb-8'>
-            It seems like the page <b>{path}</b> is not here...
-          </p>
-          <Link href='/'>
-            <a className='btn'>Click here to go to the Homepage</a>
-          </Link>
-        </div>
-      </section>
+      <img
+        src='/img/hero.svg'
+        width='512px'
+        className='opacity-50 absolute top-40 z-0 right-0 -mr-96 lg:-mr-64 xl:-mr-54'
+      />
+      <img
+        src='/img/hero.svg'
+        width='512px'
+        className='opacity-50 absolute top-40 z-0 left-0  -ml-96 lg:-ml-64 xl:-ml-54'
+      />
+      <div className='flex flex-col items-center'>
+        <h1 className='text-4xl sm:text-5xl italic font-bold font-serif pt-32 pb-8'>Error 404</h1>
+        <p className='text-xl sm:text-2xl leading-loose sm:leading-loose font-mono pb-8 max-w-xl'>
+          It seems like the page{' '}
+          <code className='bg-bgSecondary rounded py-0.5 px-1.5'>{path}</code> is not here...
+        </p>
+        <Link href='/'>
+          <a className='btn'>Click here to go to the homepage</a>
+        </Link>
+      </div>
     </Layout>
   );
 };

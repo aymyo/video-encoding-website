@@ -10,15 +10,46 @@ interface AboutPageProps {
 const AboutPage: NextPage<AboutPageProps> = () => {
   return (
     <Layout>
-      <section className='h-full block bg-red-50 md:py-32'>
-        <h1 className='font-normal text-lg sm:text-xl md:text-xl lg:text-xl mt-16 mb-8'>About</h1>
-        <div className='text-xl md:text-2xl mb-16'>
-          <p className='mb-8'>It seems like the page is not here...</p>
-          <Link href='/'>
-            <a className='btn'>Click here to go to the Homepage</a>
-          </Link>
+      <img
+        src='/img/hero.svg'
+        width='512px'
+        className='opacity-50 absolute top-40 z-0 right-0 -mr-96 lg:-mr-64 xl:-mr-54'
+      />
+      <img
+        src='/img/hero.svg'
+        width='512px'
+        className='opacity-50 absolute top-40 z-0 left-0  -ml-96 lg:-ml-64 xl:-ml-54'
+      />
+      <div className='flex flex-col items-center'>
+        <h1 className='text-4xl sm:text-5xl italic font-bold font-serif pt-16 pb-16'>
+          About this website
+        </h1>
+        <div className='text-lg sm:text-xl text-justify pb-8 max-w-xl '>
+          <p>
+            This website hosts all the information related to the course{' '}
+            <i>Video Encoding Systems</i> taught at the University Pompeu Fabra in Barcelona, as
+            part of its Engineering Audiovisual Systems degree. <br /> <br />
+          </p>
+          <p>
+            It was developed to make it more comfortable for both students and teachers to manage,
+            modify and share the course information. <br /> <br />
+          </p>
+          <p>
+            If you see any mistake, typo, or you found information that could complement what is
+            showcased on this site, feel free to make a pull request with your proposal using the
+            button at the bottom of the pages. <br /> <br />
+          </p>
+          <p>
+            Additionally, we're making the knowledge open to anyone interested in it. If you are not
+            enrolled in the course, you are free to roam around the site and learn as much as you
+            want! But of course, don't expect any certificate or evaluation.
+          </p>
         </div>
-      </section>
+
+        <Link href='/theory/0-Introduction'>
+          <a className='btn'>Start learning!</a>
+        </Link>
+      </div>
     </Layout>
   );
 };
