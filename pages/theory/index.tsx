@@ -3,7 +3,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { theoryFilePaths } from '../../utils/mdxUtils';
 
 const TheoryRedirectPage: NextPage = () => {
-  return <></>;
+  return <>{theoryFilePaths}</>;
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
