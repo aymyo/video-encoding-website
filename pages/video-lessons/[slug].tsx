@@ -39,7 +39,7 @@ const VideoLessonPage: NextPage<VideoLessonPageProps> = ({ source, frontMatter, 
   return (
     <Layout mainClass='full-container grid md:grid-cols-4 gap-x-4 relative'>
       <div className='order-1 md:col-start-2 mb-16 mt-8 col-span-3'>
-        <h1 className='font-bold font-serif text-3xl md:text-5xl mb-2'>
+        <h1 className='font-bold font-serif italic text-3xl md:text-5xl mb-2'>
           Video Lesson: {frontMatter.title}
         </h1>
         {/*<p className='font-lg'>{frontMatter.summary}</p>*/}
