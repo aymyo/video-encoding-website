@@ -11,7 +11,8 @@ export default VideoRedirectPage;
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
-      destination: `/video-lessons/${videoFilePaths[0].slice(0, -4)}`
+      destination: `/video-lessons/${videoFilePaths[0].slice(0, -4)}`,
+      permanent: true
     },
     props: {}
   };
