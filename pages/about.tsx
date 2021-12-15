@@ -11,11 +11,13 @@ const AboutPage: NextPage<AboutPageProps> = () => {
   return (
     <Layout>
       <img
+        alt=''
         src='/img/hero.svg'
         width='512px'
         className='opacity-50 absolute top-40 z-0 right-0 -mr-96 lg:-mr-64 xl:-mr-54'
       />
       <img
+        alt=''
         src='/img/hero.svg'
         width='512px'
         className='opacity-50 absolute top-40 z-0 left-0  -ml-96 lg:-ml-64 xl:-ml-54'
@@ -40,9 +42,9 @@ const AboutPage: NextPage<AboutPageProps> = () => {
             button at the bottom of the pages. <br /> <br />
           </p>
           <p>
-            Additionally, we're making the knowledge open to anyone interested in it. If you are not
-            enrolled in the course, you are free to roam around the site and learn as much as you
-            want! But of course, don't expect any certificate or evaluation.
+            Additionally, we are making the knowledge open to anyone interested in it. If you are
+            not enrolled in the course, you are free to roam around the site and learn as much as
+            you want! But of course, do not expect any certificate or evaluation.
           </p>
         </div>
 

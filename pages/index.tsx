@@ -1,9 +1,9 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
+import Link from 'next/link';
 import path from 'path';
 
-import Link from 'next/link';
 import Layout from '../components/Layout';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../utils/mdxUtils';
 

@@ -1,4 +1,5 @@
-import { MenuIcon, XCircleIcon, XIcon } from '@heroicons/react/solid';
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+import { MenuIcon, XIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 
@@ -12,12 +13,13 @@ const Navbar: FC = () => {
       <Link href='/'>
         <a className='text-3xl font-bold italic' style={{}}>
           <img
+            alt=''
             onMouseOver={(e) => ((e.target as HTMLImageElement).src = '/img/logo.svg')}
             onMouseOut={(e) => ((e.target as HTMLImageElement).src = '/img/logo-dotted.svg')}
             src='/img/logo-dotted.svg'
             className='block'
             width='56px'></img>
-          <img src='/img/logo-dotted.svg' className='hidden' width='56px'></img>
+          <img alt='' src='/img/logo-dotted.svg' className='hidden' width='56px'></img>
         </a>
       </Link>
 

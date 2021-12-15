@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { createFFmpeg, fetchFile, FFmpeg } from '@ffmpeg/ffmpeg';
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+
 import { formatBytes } from '../utils/formatBytes';
 
 const VideoEncoderTool: FC = () => {
@@ -11,7 +13,7 @@ const VideoEncoderTool: FC = () => {
   const [message, setMessage] = useState('');
   const [progress, setProgress] = useState(0);
 
-  let ffmpeg = createFFmpeg({
+  const ffmpeg = createFFmpeg({
     log: true,
     progress: (p) => {
       setProgress(Math.max(0, Math.floor(p.ratio * 100)));
@@ -19,7 +21,7 @@ const VideoEncoderTool: FC = () => {
   });
 
   try {
-    var a = SharedArrayBuffer;
+    const a = SharedArrayBuffer;
   } catch (e) {
     console.log(e instanceof ReferenceError); // true
   }
@@ -42,9 +44,13 @@ const VideoEncoderTool: FC = () => {
       await ffmpeg.run('-i', 'test.avi', 'test.mp4');
       setMessage('Transcoding completed');
       const data = ffmpeg.FS('readFile', 'test.mp4');
-      let transcodedFile = new File([data.buffer], `vce_${uploadedFile?.name.split('.')[0]}.mp4`, {
-        type: 'video/mp4'
-      });
+      const transcodedFile = new File(
+        [data.buffer],
+        `vce_${uploadedFile?.name.split('.')[0]}.mp4`,
+        {
+          type: 'video/mp4'
+        }
+      );
       setTranscodedFile(transcodedFile);
       setTranscodedSrc(URL.createObjectURL(transcodedFile));
     } catch (e) {
@@ -114,16 +120,12 @@ const VideoUploader: FC<VideoUploaderProps> = ({ uploadedFile, setUploadedFile, 
   );
 
   const doSample = async () => {
-    try {
-      await ffmpeg.load();
-    } catch (e) {
-      throw e;
-    }
+    await ffmpeg.load();
 
     try {
       ffmpeg.FS('writeFile', 'test.avi', await fetchFile('/test.avi'));
       const data = ffmpeg.FS('readFile', 'test.avi');
-      let sampleFile = new File([new Blob([data.buffer], { type: 'video/avi' })], 'test.avi');
+      const sampleFile = new File([new Blob([data.buffer], { type: 'video/avi' })], 'test.avi');
       setUploadedFile(sampleFile);
       console.log(sampleFile);
     } catch (e) {
@@ -352,5 +354,5 @@ const VideoSettings: FC<VideoSettingsProps> = ({
 const comparePercentageSizeChange = (before: number, after: number): string => {
   if (before > after) return `now ${(100 - (after / before) * 100).toFixed(2)}% smaller`;
   else if (before < after) return `now ${((after / before) * 100 - 100).toFixed(2)}% larger`;
-  else return `the same size`;
+  else return 'the same size';
 };

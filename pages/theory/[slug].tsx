@@ -1,5 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -7,15 +9,12 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 
-import styles from '../../styles/mdx.module.scss';
 import CustomLink from '../../components/CustomLink';
 import DocNav from '../../components/DocNav';
 import Layout from '../../components/Layout';
 import SideMenu from '../../components/SideMenu';
+import styles from '../../styles/mdx.module.scss';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../../utils/mdxUtils';
-
-import hljs from 'highlight.js';
-import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 import python from 'highlight.js/lib/languages/python';
 import { useEffect } from 'react';
