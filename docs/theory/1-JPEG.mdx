@@ -13,6 +13,12 @@ The **pixel** (picture element) represents the intensity of a given color, and i
 numeric value.
 
 - For example: Red Pixel: 0 of green + 0 of blue + maximum of red
-- Pink Pixel: 192 of green + 203 of blue + 255 of red.
+- Pink Pixel: 192 of green + 203 of blue + 255 of red. 
+
+In the following image you can see how the values from the three channels are added to form the pixel color:
 
 ![image](https://user-images.githubusercontent.com/40371955/146109823-948aa9e6-d732-476b-a784-d0a1a89c8c81.png)
+
+But there's other ways to encode a color image. For example, we can use and indexed palette where we will only need a single byte to represent each pixel, instead of the 3 needed when using the RGB model. In this kind of model, we can use a 2D matrix instead of a 3D one to represent color, saving memory but limiting our color options.
+
+![image](https://user-images.githubusercontent.com/40371955/146110428-9500b6b6-c247-4c4b-869e-167ac6d0b5dc.png)
