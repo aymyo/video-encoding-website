@@ -5,20 +5,30 @@ update: 18-11-2021
 ---
 
 Before learning about video encoding, it is relevant to have some previous terminology and concepts
-assimilated. Most of them you might already know, but a refresh never hurts!
+assimilated. Most of them you might already know, but a refresh never hurts! A video is by definition a succesion of images, so we will start with underdestanding the JPEG image format.
 
-## Important concepts
+## Basic concepts
 
 The **pixel** (picture element) represents the intensity of a given color, and it's usually a
-numeric value.
+numeric value. For example: 
 
-- For example: Red Pixel: 0 of green + 0 of blue + maximum of red
+- Red Pixel = 0 of green + 0 of blue + maximum of red
 - Pink Pixel: 192 of green + 203 of blue + 255 of red. 
 
-In the following image you can see how the values from the three channels are added to form the pixel color:
+We make use of a three dimensional space where the intensity of each of the RGB colors is added to display our desired one.
 
 ![píxels](https://user-images.githubusercontent.com/40371955/146955382-13b583e6-7798-4544-acbf-7c54fa8c4c39.png)
 
-But there's other ways to encode a color image. For example, we can use and indexed palette where we will only need a single byte to represent each pixel, instead of the 3 needed when using the RGB model. In this kind of model, we can use a 2D matrix instead of a 3D one to represent color, saving memory but limiting our color options.
+There's other ways to encode a color image. For example, we can use and indexed palette where we will only need a single byte to represent each pixel, instead of the 3 needed when using the RGB model. In this kind of model, we can use a 2D matrix instead of a 3D one to represent color, saving memory but limiting our color options. For the JPEG, we will only consider the first method.
 
 ![image](https://user-images.githubusercontent.com/40371955/146110480-640cb5df-ea37-4c6b-af00-32a832fd8281.png)
+
+Another basic concept is **resolution**, which is the number of pixels in  a single dimension.
+
+## JPEG
+
+As every other coding standard, is created by a board of experts which try to agree on a normalized way. In this case, the **Joint Photographic Experts Group**. The ISO norm was created in 1983. It is a lossy compression method (which means we are losing information when compressing) and supports true color (24 bits, or 16777216 different colors).
+
+The following is the encoding / decoding diagrams of the JPEG compression:
+
+![codingdiagram](https://user-images.githubusercontent.com/40371955/146962247-d7c31b42-e757-4890-9df1-f1a404dd5f64.png)
