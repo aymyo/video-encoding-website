@@ -57,5 +57,35 @@ Therefore, the DCT can compress a lot of numerical values in just the numbers th
 
 ![image 6 (1)](https://user-images.githubusercontent.com/40371955/146970866-96b8e363-7e5d-4764-9d8b-93eef28f1475.png)
 
+The JPEG standards define a serpentine pattern to convert the DCT into a linear sequence of values. Additionally, a run-length encoding is applied, which swaps every line of zereos for two digits, a zero, and the number of consecutive zeroes, reducing even more the output. 
+
+![image](https://user-images.githubusercontent.com/40371955/146976636-f0e734b7-fc98-4c11-ba6c-daf89c1bb724.png)
+
+### YCbCr
+
+Until now, we used a black and white image as an example. But what about colored images? In that case, we just would need to repeat the operation three times, one for each channel RGB. Instead, JPEG introduced a new color model: the **YCbCr**. This stands for _Luminance_, _Chroma blue difference_ and _ Chroma red difference_ respectively.
+
+This values are obtained applying a mathematical process to the RGB ones. Where R', G' and B' are the gamma corrected values and Kr, Kg and Kb three defined constants:
+
+![image](https://user-images.githubusercontent.com/40371955/146978104-c8731484-9b3b-475d-b147-e982e02cad2f.png)
+
+```
+    Y  = R *  0.29900 + G *  0.58700 + B *  0.11400
+    Cb = R * -0.16874 + G * -0.33126 + B *  0.50000 + 128
+    Cr = R *  0.50000 + G * -0.41869 + B * -0.08131 + 128
+
+    R  = Y +                       + (Cr - 128) *  1.40200
+    G  = Y + (Cb - 128) * -0.34414 + (Cr - 128) * -0.71414
+    B  = Y + (Cb - 128) *  1.77200
+```
+
+This method of representation of color will make easier to compress. Note: It is possible that you see it also named as YPbPr, and although it is based on the same concept, that is applied only for analog signals.
+
+![Group 4](https://user-images.githubusercontent.com/40371955/146980975-4090d018-4c88-4178-96bf-2e9495275c55.png)
+
+
+
+
+
 
 
