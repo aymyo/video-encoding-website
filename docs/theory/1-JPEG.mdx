@@ -35,10 +35,27 @@ The following is the encoding / decoding diagrams of the JPEG compression:
 
 Since it's a lossy method, the reconstructed image will not be equal to the original.
 
-To understand better the JPEG, let's think about how the human eye works: we recognize objects equally well regardless of the image size, and that recognition doesn't depend on image size. Based on this concepts, the JPEG achieves a considerable compression of data, making it extremely used in computing and the Internet.
+To understand better the JPEG, let's think about how the human eye works: we recognize objects equally well regardless of the image size, and that recognition doesn't depend on image size. Based on this concepts, the JPEG achieves a considerable compression of data, making it extremely used in computing and the Internet. 
 
 ![comparison](https://user-images.githubusercontent.com/40371955/146963386-7a978c96-2e35-4029-823f-5558758f58eb.png)
 
 In the previous comparison, we can see the comparison between an uncompressed image and one compressed with JPEG. The image goes from 83 to 10 kilobytes, which is about 1/8 of compression, mataining enough information so that the human eye understands the image.
+
+## DCT
+
+One of the most important parts of the encoding process is the **DCT** (Discrete Cosine Transform). To understand how it works, let's use an example:
+
+We assume that we want to compress a black and white image. The first step will be to fit the image into a gird. Then, for each cell, we will assign a value of intensity, or in other words, we will _quantize_ the image. 
+
+![Group 1 (2)](https://user-images.githubusercontent.com/40371955/146970681-6356bc06-ea4e-4414-bdf0-b29946610d76.png)
+
+Afterwards, we can plot the numerical quantized values in a graph. The DCT will try to find the best aproximation to the line created by the values. We draw a line along the avarage value, and we will try to match a sinusoidal wave to the obtained shape.
+
+![image 5 (1)](https://user-images.githubusercontent.com/40371955/146970833-a8a14ee7-ca2a-470e-81a7-c47d1ad4d8b1.png)
+
+Therefore, the DCT can compress a lot of numerical values in just the numbers that define the sinusoidal function.
+
+![image 6 (1)](https://user-images.githubusercontent.com/40371955/146970866-96b8e363-7e5d-4764-9d8b-93eef28f1475.png)
+
 
 
