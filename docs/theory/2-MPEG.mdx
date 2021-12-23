@@ -35,5 +35,116 @@ Once this concepts are settled, we can start talking about video compression met
 
 ## MPEG
 
+As we explained in the previous lesson, standarization is usually developed by groups of experts in the subject. In this case, the Moving Picture Experts Group (MPEG) was established by ISO in 1988 and created the standard (named of course **MPEG-1**) in 1993.
+
+MPEG-1 is a standard fomat for compressing and storing digital audio & video. This is a lossy compression method, but unlike images, all video compression formats are lossy, at least for now. 
+
+It was designed to compress VHS-quality raw digital video and CD audio down to 1.5 Mbit/s ( 26:1 and 6:! compression ratios respectively). VHS had a resolution of only 360x240 pixels, which now would be low quality. It also allowed to create the Video CD format, which didn't succeed. 
+
+The conceptual idea behind the MPEG-1 was to create a smart encoder which run on specialized hardware, and then a simple decoder that could be used by cheap hardware at homes.
+
+![imageonline-co-whitebackgroundremoved](https://user-images.githubusercontent.com/40371955/147271053-71f3811f-0876-494d-a2b3-789a761e4339.png)
+
+In the previous lesson we saw how JPEG could compress an image (or frame). The MPEG doesn't work with each frame, instead uses an interframe or temporal compression. The following diagram describes the method's workflow:
+
+![Group 12](https://user-images.githubusercontent.com/40371955/147272188-bba8c0e2-5a18-4cb4-bc14-e7509c8e0e9b.png)
+
+### Reduction of resolution: 
+
+This process can require a video downsize, and it translates from RGB to YUV (as in JPEG). 
+
+Additionally, it performs chroma subsampling, which consists in implementing less resolution from chroma (U and V, or Cb and Cr) information than for luma (Y), taking advantage of the human visual system's lower acuity for color differences than for luminance. The human eye containes about 120 million rod cells (which detect luminance) and only 6 million cones (which detect colors), hence the reduction of chroma.
+
+![chroma sub](https://user-images.githubusercontent.com/40371955/147272899-b62f4622-5bcf-4c67-be7f-d72044532584.png)
+
+The subsampling amount is described as _a:x:y_, where _a_ is the horizontal sampling reference (usually 4), _x_ the chroma samples in the first row, and _y_ the number of changes between the first and second row of pixels. Common subsampling schemes used in modern codecs are: 4:4:4 (no subsampling), 4:2:2, 4:1:1, 4:2:0, 4:1:0 and 3:1:1.
+
+![subsampl](https://user-images.githubusercontent.com/40371955/147273479-759fd20c-0ef0-4d32-906d-89ea7cb2a4b0.png)
+
+As we can see, the human eye doesn't really tell the difference between the 4 examples.
+
+### Motion estimation
+
+To see how motion estimation works, we need to understand the three types of frames that we can find, and how they work in MPEG. Let's assume we have a 30fps movie, and the following are the first 4 frames.
+
+![frames](https://user-images.githubusercontent.com/40371955/147276035-b030141a-f931-4cd6-b4bc-67693379be26.png)
+
+We can see there is a lot of repetition within the frames: the blue background or the different still objects. We can devide the frames in three categories:
+
+#### I Frame (intraframe, keyframe)
+
+Which is a self-contained frame. It doesn't rely on anything to be rendered, looking similar to an static photo. The frist frame is usually an I-frame but we can see them inserted regularly in between of other types of frames.
+
+#### P frame (predicted)
+
+It takes advantage of the fact that almost always the current picture can be rendered using the previous frame. For instance, in the second frame of our example, the only change is the ball moving. We can rebuild frame 1, using the difference and referencing to the previous frame.
+
+![pframe](https://user-images.githubusercontent.com/40371955/147276085-7277e6fe-d917-4402-a2b2-764daeaa1e78.png)
+
+#### B frame (Bidirectional predicted frame)
+
+Using the same concept, we can not only move to the previous frame but also move to the following one. We'll be predicting the past and the future frame.
 
 
+
+The frame types are used to provide better compression. When using this technique, MPEG sequences and reorders the frames with the pattern IBBBPBBBP. An I frame is the most 'expensive' frame, followed by a P frame and a B frame. Therefore, we can obtain a very convincing and compressed result by only using part of the video's information.
+
+On the other hand, if some information is lost, we will not be able to recover the frames correctly and artifacts will appear:
+![image](https://user-images.githubusercontent.com/40371955/147276892-9a542afc-9aae-4d09-9d64-9fae2279ffd5.png)
+
+#### Motion vector
+
+Motion estimation examines the movement of objects in an image sequence and tries to obtain vectors representing the estimated motion. In this part of the encoding process, we will generate the motion vector data to then be consumed by the decorder.
+
+> Note: motion estimation and motion compensation is considered as a single block in some resources, but are two different processes. Motion compensation is the use of the motion estimation to achieve compression. If you can describe the motion, then you have to describe the changes that occur after compensating for that motion.
+
+The following sections will be explained without a lot of depth into the formulas or mathematical operations behind them, if you want to learn more check the full slides in PDF (ADD LINK).
+
+![Group 13](https://user-images.githubusercontent.com/40371955/147281314-885b8e91-59c3-44b3-a443-14ff34c55790.png)
+
+The motion vector represents the movement between two frames of the blocks of the image.
+
+### Motion compensation
+
+This process is split into three parts:
+
+- Motion Analysis: reviews that the motion estimation part is correct.
+- Prediction and differentiation: the present frame is predicted by using the estimated vectors and the previous frame. The prediction error is calculated:
+![prediction](https://user-images.githubusercontent.com/40371955/147281850-d01aa8a7-881b-40df-b7e5-2293a30b76a4.png)
+
+Once we have the motion vector for each block, we perform the **block matching** where we apply the vector to the original block and make it match with the next frame, for every block. As before, further information can be found in the slide PDF.
+
+![blockmatch](https://user-images.githubusercontent.com/40371955/147282129-1474f070-bd7b-432d-8a5a-aa08536dee31.png)
+
+-Encoding: as performed in the JPEG format, DCT-Quantize-Run-length encoding-Entropy encoding (Huffman)
+
+Here's a real life example of an MPEG encoder:
+
+![mpegdiagramreal](https://user-images.githubusercontent.com/40371955/147282363-cb2b937f-a118-41ef-b462-562bd118e1f8.png)
+
+### What about audio?
+
+MPEG-1 has its own codec based on psychoacustics. MPEG-1 Layer I (.mp1) is defined in ISO/IEC 11172-3, which first version was published in 1993. It supports the following sampling rates and bitrates:
+
+- Sampling rates: 32, 44.1 and 48 kHz
+- Bitrates: 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416 and 448 kbit/s.
+
+## MPEG-2
+
+The same group of experts developed an enhanced version of the format in 1996. it offered higher resultions such as 720x480 and 1280x720 at 60fps, with full CD-quality audio. This was sufficient for all the major TV standards including NTSC and HDTV. MPEG-2 was used by DVD-ROMS, and could compress a 2 hour video into a few gigabytes. Some of the improvements where the following.
+
+- Coding performance related to supporting interlaced video input:
+  - Field/frame prediction modes.
+  - Field/frame DTC coding syntax
+  - Downloadable quantization matrix and alternative scan order
+  - Scalability extension
+- Non-compression enhancements:
+  - Syntax to facilitate 3:2 pull-down in the decoder
+  - Pan and scan codes with 1=16 pixel resolution
+  - Display flags indicating chromaticity, subcarrier amplitude, and phase (for NTSC=PAL=SECAM source material)
+- Improved version of the audio codec:
+  - Extensions known as MPEG-BC, backwards compatible with MPEG-1 AUdio. Defined in ISO/IEC 13818-3
+  - Introduction of MPEG multichannel (backward compatible 5.1 channel surround sound)
+  - Improved sampling and bit rates: 16000, 22050, 24000Hz and 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144 and 160 kbit/s, respectively. Sampling rates are the half of those in MPEG-1, and were added to mantain higher quality sound when encoding audio at lower bitrates.
+
+MPEG-2 is used in DVD video, HDV and cameras like MOD and TOD, XDCAM, in the Digital TV standards and even in the first blue-ray video.
