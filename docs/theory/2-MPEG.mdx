@@ -4,203 +4,31 @@ summary: The video codecs
 update: 18-11-2021
 ---
 
-# T2. MPEG & MPEG2
+## Basic concepts: aspect ratio and video
 
-## h2 Heading
+Let's start this second theory lesson by explaining another couple basic concept about images (and videos):
 
-### h3 Heading
+The **aspect ratio** describtes the proportional relationship between the width and height of an image, video or pixel. If we apply it to screens, we call it Display Aspect Ratio (DAR). It is defined as two numbers divided by a semicolon, for example:
 
-#### h4 Heading
+![dar](https://user-images.githubusercontent.com/40371955/147265647-f3467423-ab0c-42dd-9118-2916c9284c09.png)
 
-##### h5 Heading
+The concept can also be used for píxels, so the PAR will describe the relationship between height and width or the shape of the píxel.
 
-###### h6 Heading
+![par](https://user-images.githubusercontent.com/40371955/147266074-b1b6f157-ae95-49da-a7b9-b64368a0f276.png)
 
-## Horizontal Rules
+Before we explore the video formats, let's agree on what a **video** is. We can define a video as a succesion of _n_ frames in time (which we can see as another dimension). This _n_ is the framerate ot frames per second (fps).
 
----
+![videodef](https://user-images.githubusercontent.com/40371955/147266739-aae68dde-13fd-473c-9475-840c8e84a089.png)
 
-## Emphasis
-
-**This is bold text**
-
-**This is bold text**
-
-_This is italic text_
-
-_This is italic text_
-
-~~Strikethrough~~
-
-## Blockquotes
-
-> Blockquotes can also be nested...
->
-> > ...by using additional greater-than signs right next to each other...
-> >
-> > > ...or with spaces between arrows.
-
-## Lists
-
-Unordered
-
-- Create a list by starting a line with `+`, `-`, or `*`
-- Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    - Ac tristique libero volutpat at
-    * Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-- Very easy!
-
-Ordered
-
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-4. You can use sequential numbers...
-5. ...or keep all the numbers as `1.`
-
-Start numbering with offset:
-
-57. foo
-1. bar
-
-## Code
-
-Inline `code`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-Block code "fences"
-
+Furthermore we define **bitrate** as the number of bits per second needed to show a video.
 ```
-Sample text here...
+bitRate = width * height * bitDepth * FPS
 ```
+For example, if we have a video with 30fps, 24 bits/pixel and a 480x240 resolution, we will need 82944000 bits per second, or 82.944 Mbps (30 * 480 * 240 * 24) if we dont employ any kind of compression.
 
-Syntax highlighting
+When the bitrate is nearly constant, we call it CBR (constant bit rate). On the other hand, if its variable, VBR (variable bit rate).
 
-```js
-var foo = function (bar) {
-  return bar++;
-};
+![image](https://user-images.githubusercontent.com/40371955/147267211-9c89857d-12e8-4278-9a24-43e58d17f935.png)
 
-console.log(foo(5));
-```
+The are also techniques to double the precieved framerate without consuming extra bandwith. The first one used was _interlaced video_, which sent half of the screen in one frame, and the other half in the other frame skipping every other line. Nowadays _progressive scan video_ is used, which displays, stores or transmits moving images drawing all the lines of each frame in sequence.
 
-## Tables
-
-| Option | Description                                                               |
-| ------ | ------------------------------------------------------------------------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default.    |
-| ext    | extension to be used for dest files.                                      |
-
-Right aligned columns
-
-| Option |                                                               Description |
-| -----: | ------------------------------------------------------------------------: |
-|   data | path to data files to supply the data that will be passed into templates. |
-| engine |    engine to be used for processing templates. Handlebars is the default. |
-|    ext |                                      extension to be used for dest files. |
-
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ 'title text!')
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-## Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
-
-## Plugins
-
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with
-twemoji.
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- 19^th^
-- H~2~O
-
-### [\<ins></ins>](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-### [\<mark></mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: Footnote text.
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-: Definition 1 with lazy continuation.
-
-Term 2 with _inline markup_
-
-: Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1 ~ Definition 1
-
-Term 2 ~ Definition 2a ~ Definition 2b
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-\*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning _here be dragons_ :::
