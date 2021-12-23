@@ -6,7 +6,8 @@ update: 18-11-2021
 
 ## MPEG-4
 
-In this lesson we will talk about more recent video technologies. For starters, we will go over the MPEG-4, which as the name suggests, it was created by the same group, the MPEG, and it's an enhancement of previous versions. It was introduced in late 1998 and designated a standard for a group of audio and video coding formats and related technology agreed upon by the ISO/IEC Moving Picture Experts Group (MPEG) (ISO/IEC JTC1/SC29/WG11) under the formal standard ISO/IEC 14496 – Coding of audio-visual objects. It uses the 
+In this lesson we will talk about more recent video technologies. For starters, we will go over the MPEG-4, which as the name suggests, it was created by the same group, the MPEG, and it's an enhancement of previous versions. It was introduced in late 1998 and designated a standard for a group of audio and video coding formats and related technology agreed upon by the ISO/IEC Moving Picture Experts Group (MPEG) (ISO/IEC JTC1/SC29/WG11) under the formal standard ISO/IEC 14496 – Coding of audio-visual objects.
+
 
 It was a graphics and video compression algorithm standard based on MPEG-1, MPEG-2 and Apple QuickTime technology.
 MPEG-4 is still almost everywhere. Its uses include compression of AV data for web (streaming media) and CD
@@ -67,15 +68,17 @@ To provide a little of historical context, until the launch of h264 (which will 
 
 As MPEG2 was born due to achieve a broadcasting tech upgrade: compress interlaced broadcasting, and get digital video into satellite, cable, etc.; MPEG4 was born just to get better compression bitrate, with the aim of sending video through the internet. It had to main improvements:
 
-- Motion compensation: Instead of 16x16 macroblocks, now they have a variable block size. This way, bigger block can be used for areas where the color is very similar.
+- **Motion compensation:** Instead of 16x16 macroblocks, now they have a variable block size. This way, bigger block can be used for areas where the color is very similar.
 
 ![variableblocksize](https://user-images.githubusercontent.com/40371955/147290573-6f3f118f-9034-4469-8e71-e91fc9e60aed.png)
 
-- New entropy coding at the end of the workflow: instead of using a variable length coding based on huffman, MPEG4 intruduces to new algorithms -> CAVLC (Context Adaptative Variable Length Coding) and CABAC (Context Adatpative Binary Arithmetic Coding). They will substitute the RLE, being also lossless.
+- **New entropy coding** at the end of the workflow: instead of using a variable length coding based on huffman, MPEG4 intruduces to new algorithms -> CAVLC (Context Adaptative Variable Length Coding) and CABAC (Context Adatpative Binary Arithmetic Coding). They will substitute the RLE, being also lossless.
 
 In H.264/MPEG-4 AVC, CAVLC it is used to encode residual, zig-zag order, blocks of transform coefficients. CABAC is notable for providing much better compression than most other entropy encoding algorithms used in video encoding. 
 CAVLC requires considerably less processing to decode than CABAC, although it does not compress the data quite as
 effectively. 
+
+
 
 It's estimated the bitrate savings can be as much as 50% or more compared to MPEG-2. [This video](https://www.youtube.com/watch?v
 =PmoEsPWEdOA) explains graphically the h264 compression technology.
