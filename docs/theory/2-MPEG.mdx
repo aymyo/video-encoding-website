@@ -20,15 +20,15 @@ Before we explore the video formats, let's agree on what a **video** is. We can 
 
 ![videodef](https://user-images.githubusercontent.com/40371955/147266739-aae68dde-13fd-473c-9475-840c8e84a089.png)
 
-Furthermore we define **bitrate** as the number of bits per second needed to show a video.
-```
-bitRate = width * height * bitDepth * FPS
-```
-For example, if we have a video with 30fps, 24 bits/pixel and a 480x240 resolution, we will need 82944000 bits per second, or 82.944 Mbps (30 * 480 * 240 * 24) if we dont employ any kind of compression.
+Furthermore we define **bitrate** as the number of bits per second needed to show a video. ``bitRate = width * height * bitDepth * FPS``. For example, if we have a video with 30fps, 24 bits/pixel and a 480x240 resolution, we will need 82944000 bits per second, or 82.944 Mbps (30 * 480 * 240 * 24) if we dont employ any kind of compression.
 
 When the bitrate is nearly constant, we call it CBR (constant bit rate). On the other hand, if its variable, VBR (variable bit rate).
 
 ![image](https://user-images.githubusercontent.com/40371955/147267211-9c89857d-12e8-4278-9a24-43e58d17f935.png)
 
 The are also techniques to double the precieved framerate without consuming extra bandwith. The first one used was _interlaced video_, which sent half of the screen in one frame, and the other half in the other frame skipping every other line. Nowadays _progressive scan video_ is used, which displays, stores or transmits moving images drawing all the lines of each frame in sequence.
+
+![image](https://user-images.githubusercontent.com/40371955/147267979-520b1fae-d89c-466f-aca5-ce113fd56ed4.png)
+![image](https://user-images.githubusercontent.com/40371955/147267997-7b6a8e71-bc47-4fbf-a6e8-00d538f451a3.png)
+
 
