@@ -82,5 +82,56 @@ effectively.
 
 It's estimated the bitrate savings can be as much as 50% or more compared to MPEG-2. [This video](https://www.youtube.com/watch?v=PmoEsPWEdOA) explains graphically the h264 compression technology.
 
+## Broadcasting standards
+
+Although this section is more related to telecommunications, it is interesting to understand how TV is broadcasted and see real life applications of video encoding. Also, explanations about MPEG-TS will be avoided, since it's not strictly necessary to understand the bigger picture. You just need to know that Transport Stream exists. Think about that as an IPTV MPEG container.
+
+In the follwing map you can sww the four digital TV standards and their applications depending on each country. As you can see their applications is very dependant on geopolitics economic trades.
+
+![tvmap](https://user-images.githubusercontent.com/40371955/147291729-a9c844f2-3692-42aa-aa8a-e5c4d04bb544.png)
+
+Signals can either be: _terrestial_ (also named aerial) through antennas, _satellital_ or through _cable_. The last letter of each acronym corresponds to the medium in which they are transmitted. This can be applied to all broadcasting standards: ISDB-T, ATSC-C, DVB-T, etc
+
+### DVB (Digital Video Broadcasting)
+
+DVB is a set of international open standards for digital television. DVB standards are maintained by the DVB Project, an international industry consortium, and are published by a Joint Technical Committee (JTC) of the European Telecommunications Standards Institute (ETSI), European Committee for Electrotechnical Standardization (CENELEC) and European Broadcasting Union (EBU).
+
+For video it uses MPEG2 and h.264. Usually is MPEG2 for SD channels and .h264 for HD channels. For audio, it uses AAC, Dolby Digital (AC-3) and MP3.
+
+The following screenshots are real examples from _Castilla la Mancha TV_ (Spain) and a german news channel. In the first one we can see the tracks inside the MPEG Transport Stream container, several audio tracks in different codecs and a main video track. On the other one we see the same specs in the video, several audio tracks and two info tracks, subtitle and teletext, all in the same container.
+
+![realexample](https://user-images.githubusercontent.com/40371955/147292769-832def9b-2e0a-4159-a96a-112e0ed4c7b3.png)
+
+### ISDB 
+
+The Integrated Services Digital Broadcasting (ISDB; Japanese: 統合デジタル放送サービス, Tōgō dejitaru hōsō sābisu) is a Japanese standard for digital television (DTV) and digital radio used by the country's radio and television networks.
+ISDB replaced NTSC-J analog television system and the previously used MUSE Hi-vision analogue HDTV system in Japan, and replacing NTSC, PAL-M and PAL-N in South America and the Philippines.
+
+For video, as DVB: MPEG2, h.264. The first for SD channels and the latter for HD ones. Except on ISDB-Tb (Brazilian & Latam), which uses only .h264.
+For audio it only uses AAC.
+
+The following is a real life example from public Ecuatorian TV. As you can see, it uses always h.264 for both SD and HD channels.
+
+![quitoTV](https://user-images.githubusercontent.com/40371955/147293173-1adf2ee5-860d-4846-a6cb-90c123a29785.png)
+
+### ATSC
+
+ATSC, Advanced Television Systems Committee (ATSC) standards are a set of standards for digital television transmission over terrestrial, cable, and satellite networks. It is largely a replacement for the analog NTSC standard, and like that standard, used mostly in the United States, Mexico and Canada. Other former users of NTSC, like Japan, have not used ATSC during their digital television transition because they adopted their own system, ISDB.
+
+ATSC includes two primary high definition video formats, 1080i and 720p. It also includes standard-definition formats, although initially only HDTV services were launched in the digital format. ATSC can carry multiple channels of information on a single stream.
+
+For video channels, it works as DVB: MPEG2 for SD and .h264 for HD. However, for audio it uses AC-3, not a very performant codec ([here](https://en.wikipedia.org/wiki/Grand_Alliance_(HDTV)) you can learn more about why).
+
+As before, in the following image there's a real life example from USA and Mexican TV. As you can see they use the AC-3 for audio, and the USA TV has an additional data track that sends timecodes to inform where the advertisments are placed.
+
+![usamexTV](https://user-images.githubusercontent.com/40371955/147293550-4a4b3caa-0163-4a0a-b010-1fbabfc8ee45.png)
+
+### DTMB
+
+Previously known as DMB-T/H (Digital Multimedia Broadcast-Terrestrial/Handheld), the DTMB is a merger of the standards ADTB-T (developed by the Shanghai Jiao Tong University), DMB-T (developed by Tsinghua University) and TiMi (Terrestrial Interactive Multiservice Infrastructure); this last one is the standard proposed by the Academy of
+Broadcasting Science in 2002. The DTMB was created in 2004 and finally became an official DTT standard in 2006.
+
+For video it uses its own codecs: AVS, AVS+ and MPEG2, h.264. AVS is a chinese codec very similar to .h264.
+For audio, it uses  DRA, AAC, AC-3, MP2, MP3. Being DRA (Dynamic Resolution Adaptation) the chinese own audio codec.
 
 
