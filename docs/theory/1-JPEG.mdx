@@ -85,12 +85,23 @@ This method of representation of color will make easier to compress. Note: It is
 
 ## JPEG 2000
 
+In order to solve the quality loss issue with JPEG, the same board of experts presented in the year 2000 a new standard: JPEG2000. It was technologically the best porssible engineering solution to the problem they had, but it failed to standarize, as it required the hardware to adapt to the new codec (in other words, it was not backward compatible with JPEG).
+
+Its file extension was ``.jp2``. More information about this codec in the pdf with slides (LINK TO ADD).
+
 ## Other Standards
 
-Which also compress the image, and are commonly used.
+There are other methods which also compress the image that managed to have success in standarizing and are commonly used.
 
 ### GIF (Graphical Image Interface)
 
-It stores 8 bits per pixel for each image, up to 256 different colors chosen from the 24-bit RGB color space. It uses the file extension ``.gif`` 
+It stores 8 bits per pixel for each image, up to 256 different colors chosen from the 24-bit RGB color space, therefore, it uses the second method of representing color that we explained in the first section of this document. It uses the file extension ``.gif``, and one of the most interesting properties of it is animation support.
 
+It is less suitable for color photographs, but good enough for graphics or logos. Gif images are compressed using the Lempel-Ziv-Welch (LZW) lossless data methods to reduce the file size without degrading the visual quality.
+
+### PNG (Portable Network Graphics)
+
+Another image standard that succeded more than JPEG2000, was the PNG. It was a non-patented, opensource format that aimed to substitute GIF. 
+
+It supports 24RGB or 32 bit RGBA (so can have opacity). The file extension is ``.png`` and uses a lossless codec, based on DEFLATE encoding (a mix of LZSS and Huffman).
 ....
