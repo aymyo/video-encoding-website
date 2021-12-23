@@ -4,4 +4,85 @@ summary: The video codecs
 update: 18-11-2021
 ---
 
-Empty
+## MPEG-4
+
+In this lesson we will talk about more recent video technologies. For starters, we will go over the MPEG-4, which as the name suggests, it was created by the same group, the MPEG, and it's an enhancement of previous versions. It was introduced in late 1998 and designated a standard for a group of audio and video coding formats and related technology agreed upon by the ISO/IEC Moving Picture Experts Group (MPEG) (ISO/IEC JTC1/SC29/WG11) under the formal standard ISO/IEC 14496 – Coding of audio-visual objects. It uses the 
+
+It was a graphics and video compression algorithm standard based on MPEG-1, MPEG-2 and Apple QuickTime technology.
+
+
+To provide a little of historical context, until the launch of h264 (which will be explained in the next sections), if you wanted to use MPEG-1 or MPEG-2 it was necessary to pay royalties to the owner of the codec. And until then, it was a full monopoly of the MPEG. However, from 2001, h264 started to compete with royalty-free codecs.
+
+![image](https://user-images.githubusercontent.com/40371955/147286863-3ea66c76-3f0c-4f98-8dc6-b35d010a923f.png)
+
+
+MPEG-4 is still almost everywhere. Its uses include compression of AV data for web (streaming media) and CD
+distribution, voice (telephone, videophone) and broadcast television applications. 
+
+On of the first improvements that it had, was the possibility to handle bigger resolutions, and in this context, HDTV appears: 720p and 1080p (not to confuse with 720i and 1080i: both have 720p and 1080p as resolution but they
+work with interlaced video)
+
+- 720p, _or standard HD_, is 1280x720 pixels:
+
+It’s a progressive HDTV signal format with 720 horizontal lines and an aspect ratio (AR) of 16:9, normally known as widescreen HDTV (1.78:1). 
+The frame rate is standards-dependent, and for conventional broadcasting appears in 50 progressive frames per second in former PAL/SECAM countries (Europe, Australia, others), and 59.94 frames per second in former NTSC countries (North America, Japan, Brazil, others). It can change or vary depending on the standard (i.e. broadcasting standards, end of this lesson).
+
+- 1080p, or _full HD_, is 1920x1080 pixels:
+
+It’s a set of HDTV. The p stands for progressive scan, i.e. non-interlaced. The term usually assumes a widescreen aspect ratio of 16:9, implying a resolution of 2.1 megapixels. 
+
+Applications of the 1080p standard include television broadcasts, Blu-ray Discs, smartphones, Internet content such as YouTube videos and Netflix TV shows and movies, consumer-grade televisions and projectors, computer monitors and video game consoles. 
+Small camcorders, smartphones and digital cameras can capture still and moving images in 1080p resolution.
+
+MPEG-4 files are smaller than JPEG or QuickTIme files, so they are designated to transmit video and images over a narrower bandwith and can mix video with text, graphics and 2D or 3D animation layers. This was achieved with:
+
+- **Video Objects and Video Object Planes:** A technique that allowed to to add separate forms or _video objects_ to define the image.
+
+![VOP](https://user-images.githubusercontent.com/40371955/147288327-420004a4-31f5-4c9f-bbad-fa9ec2720f8f.png)
+
+- **Shape coding**: MPEG-4 video coding is the first to make effort at providing a standardized approach to compress the shape information of objects and contain the compressed results within a video bitstream. Video data can be coded on an object basis.
+
+The information in the video signal is decomposed to shape, texture, and motion. This information is then coded and transmitted within the bitstream. The shape information is provided in binary format or gray-scale format. The binary
+format of shape information consists of a pixel map.
+
+- **Sprite coding:** A sprite is an especially composed VO that is visible throughout an entire piece of video sequence. For example, the sprite generated from a panning sequence contains all the visible pixels of the background throughout the video sequence. Portion of the background may not be seen in certain frames due to the occlusion.
+
+- **Interlaced video coding**
+- **Wavelet based texture coding**
+- **Generalized Spatial and Temporal Scalability**
+
+- **Error resilience**: MPEG4 provides error robustness and resilience to allow access of image and video data over a wide range of storage and transmission media.
+
+- **The container concept** (Introduced in MPEG part 11, or ``.mp4``: It enables that one file can have multiple tracks (video, audio, subtitles) that will be inside the video container.
+![image](https://user-images.githubusercontent.com/40371955/147288840-38725497-c142-4b2a-9de7-224e9045a6d4.png)
+
+When we used to see .mpg or .mp2 files, those where unique videos with 1 track encoded with mpeg and mpeg2 codec respectively. Now the container lets us to mix codecs. I.e.: 1 MPEG video track, 2 MP3 audio tracks, 1 AAC audio track, 1 close caption/subtitles track...
+
+- **Possibility to add DRM**: Digital rights management (DRM) tools or technological protection measures (TPM) are a
+set of access control technologies for restricting the use of proprietary hardware and copyrighted works. DRM technologies try to control the use, modification, and distribution of copyrighted works (such as software and
+multimedia content), as well as systems within devices that enforce these policies
+
+- Lastly, the last versions of MPEG4 introduced for the first time a new codec for video: h264.
+
+### h264
+
+Also known as AVC (Advanced Video Coding) or MPEG-4 Part 10, Advanced Video Coding (MPEG4 AVC), is a video compression standard based on block-oriented, motion-compensated integerDCT coding. It is by far the most commonly used format for the recording, compression, and distribution of video content, used by 91% of video industry developers as of September 2019. It supports resolutions up to and including 8K UHD.
+
+As MPEG2 was born due to achieve a broadcasting tech upgrade: compress interlaced broadcasting, and get digital video into satellite, cable, etc.; MPEG4 was born just to get better compression bitrate, with the aim of sending video through the internet. It had to main improvements:
+
+- Motion compensation: Instead of 16x16 macroblocks, now they have a variable block size. This way, bigger block can be used for areas where the color is very similar.
+
+![variableblocksize](https://user-images.githubusercontent.com/40371955/147290573-6f3f118f-9034-4469-8e71-e91fc9e60aed.png)
+
+- New entropy coding at the end of the workflow: instead of using a variable length coding based on huffman, MPEG4 intruduces to new algorithms -> CAVLC (Context Adaptative Variable Length Coding) and CABAC (Context Adatpative Binary Arithmetic Coding). They will substitute the RLE, being also lossless.
+
+In H.264/MPEG-4 AVC, CAVLC it is used to encode residual, zig-zag order, blocks of transform coefficients. CABAC is notable for providing much better compression than most other entropy encoding algorithms used in video encoding. 
+CAVLC requires considerably less processing to decode than CABAC, although it does not compress the data quite as
+effectively. 
+
+
+It's estimated the bitrate savings can be as much as 50% or more compared to MPEG-2. [This video](https://www.youtube.com/watch?v
+=PmoEsPWEdOA) explains graphically the h264 compression technology.
+
+
+
