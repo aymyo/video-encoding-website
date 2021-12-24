@@ -9,28 +9,26 @@
   }
 
   h1 {
-    @apply text-3xl md:text-5xl mb-8;
+    @apply text-3xl md:text-5xl mb-8 mt-10;
   }
   h2 {
-    @apply text-2xl md:text-3xl mb-6;
+    @apply text-xl md:text-2xl my-6 mt-12 underline;
   }
   h3 {
-    @apply text-xl md:text-2xl mb-4;
+    @apply text-lg md:text-xl my-4;
   }
   h4 {
-    @apply text-lg md:text-xl mb-3;
+    @apply text-base md:text-lg my-3;
   }
-  h5 {
-    @apply text-base md:text-lg mb-2;
-  }
+  h5,
   h6 {
-    @apply text-sm md:text-lg mb-1;
+    @apply text-sm md:text-base my-1;
   }
   hr {
     @apply border-0 border-t border-solid border-bgSecondary my-4;
   }
   blockquote {
-    @apply italic font-serif text-lg relative pl-4 my-1;
+    @apply font-sans italic text-base relative pl-4 my-5;
     &:before {
       content: ' ';
       height: 100%;
