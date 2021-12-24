@@ -18,7 +18,7 @@ const DocNav: FC<DocNavProps> = ({ slug, docs, currentSection }) => {
   const nextDoc = pathArray && docs[pathArray?.findIndex((path) => path === slug) + 1];
 
   return (
-    <nav className='flex justify-between flex-wrap gap-4 items-start mt-24 py-8 border-t border-t-1 border-bgSecondary'>
+    <nav className='flex justify-between flex-wrap gap-4 items-start mt-12 py-8 border-t border-t-1 border-bgSecondary'>
       <NavButton dir='prev' doc={prevDoc} currentSection={currentSection} />
       <GithubButton slug={slug} currentSection={currentSection} />
       <NavButton dir='next' doc={nextDoc} currentSection={currentSection} />

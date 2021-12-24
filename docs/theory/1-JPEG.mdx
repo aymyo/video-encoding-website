@@ -5,29 +5,37 @@ update: 18-11-2021
 ---
 
 Before learning about video encoding, it is relevant to have some previous terminology and concepts
-assimilated. Most of them you might already know, but a refresh never hurts! A video is by definition a succesion of images, so we will start with underdestanding the JPEG image format.
+assimilated. Most of them you might already know, but a refresh never hurts! A video is by
+definition a succesion of images, so we will start with underdestanding the JPEG image format.
 
 ## Basic concepts
 
 The **pixel** (picture element) represents the intensity of a given color, and it's usually a
-numeric value. For example: 
+numeric value. For example:
 
 - Red Pixel = 0 of green + 0 of blue + maximum of red
-- Pink Pixel: 192 of green + 203 of blue + 255 of red. 
+- Pink Pixel: 192 of green + 203 of blue + 255 of red.
 
-We make use of a three dimensional space where the intensity of each of the RGB colors is added to display our desired one.
+We make use of a three dimensional space where the intensity of each of the RGB colors is added to
+display our desired one.
 
 ![píxels](https://user-images.githubusercontent.com/40371955/146955382-13b583e6-7798-4544-acbf-7c54fa8c4c39.png)
 
-There's other ways to encode a color image. For example, we can use and indexed palette where we will only need a single byte to represent each pixel, instead of the 3 needed when using the RGB model. In this kind of model, we can use a 2D matrix instead of a 3D one to represent color, saving memory but limiting our color options. For the JPEG, we will only consider the first method.
+There's other ways to encode a color image. For example, we can use and indexed palette where we
+will only need a single byte to represent each pixel, instead of the 3 needed when using the RGB
+model. In this kind of model, we can use a 2D matrix instead of a 3D one to represent color, saving
+memory but limiting our color options. For the JPEG, we will only consider the first method.
 
 ![image](https://user-images.githubusercontent.com/40371955/146110480-640cb5df-ea37-4c6b-af00-32a832fd8281.png)
 
-Another basic concept is **resolution**, which is the number of pixels in  a single dimension.
+Another basic concept is **resolution**, which is the number of pixels in a single dimension.
 
 ## JPEG
 
-As every other coding standard, is created by a board of experts which try to agree on a normalized way. In this case, the **Joint Photographic Experts Group**. The ISO norm was created in 1983. It is a lossy compression method (which means we are losing information when compressing) and supports true color (24 bits, or 16777216 different colors).
+As every other coding standard, is created by a board of experts which try to agree on a normalized
+way. In this case, the **Joint Photographic Experts Group**. The ISO norm was created in 1983. It is
+a lossy compression method (which means we are losing information when compressing) and supports
+true color (24 bits, or 16777216 different colors).
 
 The following is the encoding / decoding diagrams of the JPEG compression:
 
@@ -35,37 +43,54 @@ The following is the encoding / decoding diagrams of the JPEG compression:
 
 Since it's a lossy method, the reconstructed image will not be equal to the original.
 
-To understand better the JPEG, let's think about how the human eye works: we recognize objects equally well regardless of the image size, and that recognition doesn't depend on image size. Based on this concepts, the JPEG achieves a considerable compression of data, making it extremely used in computing and the Internet. 
+To understand better the JPEG, let's think about how the human eye works: we recognize objects
+equally well regardless of the image size, and that recognition doesn't depend on image size. Based
+on this concepts, the JPEG achieves a considerable compression of data, making it extremely used in
+computing and the Internet.
 
 ![comparison](https://user-images.githubusercontent.com/40371955/146963386-7a978c96-2e35-4029-823f-5558758f58eb.png)
 
-In the previous comparison, we can see the comparison between an uncompressed image and one compressed with JPEG. The image goes from 83 to 10 kilobytes, which is about 1/8 of compression, mataining enough information so that the human eye understands the image.
+In the previous comparison, we can see the comparison between an uncompressed image and one
+compressed with JPEG. The image goes from 83 to 10 kilobytes, which is about 1/8 of compression,
+mataining enough information so that the human eye understands the image.
 
 ## DCT
 
-One of the most important parts of the encoding process is the **DCT** (Discrete Cosine Transform). To understand how it works, let's use an example:
+One of the most important parts of the encoding process is the **DCT** (Discrete Cosine Transform).
+To understand how it works, let's use an example:
 
-We assume that we want to compress a black and white image. The first step will be to fit the image into a gird. Then, for each cell, we will assign a value of intensity, or in other words, we will _quantize_ the image. 
+We assume that we want to compress a black and white image. The first step will be to fit the image
+into a gird. Then, for each cell, we will assign a value of intensity, or in other words, we will
+_quantize_ the image.
 
 ![Group 1 (3)](https://user-images.githubusercontent.com/40371955/146971185-4e891ec3-eed6-433c-a815-60e92ffc1254.png)
 
-Afterwards, we can plot the numerical quantized values in a graph. The DCT will try to find the best aproximation to the line created by the values. We draw a line along the avarage value, and we will try to match a sinusoidal wave to the obtained shape.
+Afterwards, we can plot the numerical quantized values in a graph. The DCT will try to find the best
+aproximation to the line created by the values. We draw a line along the avarage value, and we will
+try to match a sinusoidal wave to the obtained shape.
 
 ![image 5 (1)](https://user-images.githubusercontent.com/40371955/146970833-a8a14ee7-ca2a-470e-81a7-c47d1ad4d8b1.png)
 
-Therefore, the DCT can compress a lot of numerical values in just the numbers that define the sinusoidal function.
+Therefore, the DCT can compress a lot of numerical values in just the numbers that define the
+sinusoidal function.
 
 ![image 6 (1)](https://user-images.githubusercontent.com/40371955/146970866-96b8e363-7e5d-4764-9d8b-93eef28f1475.png)
 
-The JPEG standards define a serpentine pattern to convert the DCT into a linear sequence of values. Additionally, a run-length encoding is applied, which swaps every line of zereos for two digits, a zero, and the number of consecutive zeroes, reducing even more the output. 
+The JPEG standards define a serpentine pattern to convert the DCT into a linear sequence of values.
+Additionally, a run-length encoding is applied, which swaps every line of zereos for two digits, a
+zero, and the number of consecutive zeroes, reducing even more the output.
 
 ![image](https://user-images.githubusercontent.com/40371955/146976636-f0e734b7-fc98-4c11-ba6c-daf89c1bb724.png)
 
 ### YCbCr
 
-Until now, we used a black and white image as an example. But what about colored images? In that case, we just would need to repeat the operation three times, one for each channel RGB. Instead, JPEG introduced a new color model: the **YCbCr**. This stands for _Luminance_, _Chroma blue difference_ and _ Chroma red difference_ respectively.
+Until now, we used a black and white image as an example. But what about colored images? In that
+case, we just would need to repeat the operation three times, one for each channel RGB. Instead,
+JPEG introduced a new color model: the **YCbCr**. This stands for _Luminance_, _Chroma blue
+difference_ and _ Chroma red difference_ respectively.
 
-This values are obtained applying a mathematical process to the RGB ones. Where R', G' and B' are the gamma corrected values and Kr, Kg and Kb three defined constants:
+This values are obtained applying a mathematical process to the RGB ones. Where R', G' and B' are
+the gamma corrected values and Kr, Kg and Kb three defined constants:
 
 ![image](https://user-images.githubusercontent.com/40371955/146978104-c8731484-9b3b-475d-b147-e982e02cad2f.png)
 
@@ -79,28 +104,50 @@ This values are obtained applying a mathematical process to the RGB ones. Where 
     B  = Y + (Cb - 128) *  1.77200
 ```
 
-This method of representation of color will make easier to compress. Note: It is possible that you see it also named as YPbPr, and although it is based on the same concept, that is applied only for analog signals.
+This method of representation of color will make easier to compress. Note: It is possible that you
+see it also named as YPbPr, and although it is based on the same concept, that is applied only for
+analog signals.
 
 ![Group 4](https://user-images.githubusercontent.com/40371955/146980975-4090d018-4c88-4178-96bf-2e9495275c55.png)
 
 ## JPEG 2000
 
-In order to solve the quality loss issue with JPEG, the same board of experts presented in the year 2000 a new standard: JPEG2000. It was technologically the best porssible engineering solution to the problem they had, but it failed to standarize, as it required the hardware to adapt to the new codec (in other words, it was not backward compatible with JPEG).
+In order to solve the quality loss issue with JPEG, the same board of experts presented in the year
+2000 a new standard: JPEG2000. It was technologically the best porssible engineering solution to the
+problem they had, but it failed to standarize, as it required the hardware to adapt to the new codec
+(in other words, it was not backward compatible with JPEG).
 
-Its file extension was ``.jp2``. More information about this codec in the pdf with slides (LINK TO ADD).
+Its file extension was `.jp2`. More information about this codec in the pdf with slides (LINK TO
+ADD).
 
 ## Other Standards
 
-There are other methods which also compress the image that managed to have success in standarizing and are commonly used.
+There are other methods which also compress the image that managed to have success in standarizing
+and are commonly used.
 
 ### GIF (Graphical Image Interface)
 
-It stores 8 bits per pixel for each image, up to 256 different colors chosen from the 24-bit RGB color space, therefore, it uses the second method of representing color that we explained in the first section of this document. It uses the file extension ``.gif``, and one of the most interesting properties of it is animation support.
+It stores 8 bits per pixel for each image, up to 256 different colors chosen from the 24-bit RGB
+color space, therefore, it uses the second method of representing color that we explained in the
+first section of this document. It uses the file extension `.gif`, and one of the most interesting
+properties of it is animation support.
 
-It is less suitable for color photographs, but good enough for graphics or logos. Gif images are compressed using the Lempel-Ziv-Welch (LZW) lossless data methods to reduce the file size without degrading the visual quality.
+It is less suitable for color photographs, but good enough for graphics or logos. Gif images are
+compressed using the Lempel-Ziv-Welch (LZW) lossless data methods to reduce the file size without
+degrading the visual quality.
 
 ### PNG (Portable Network Graphics)
 
-Another image standard that succeded more than JPEG2000, was the PNG. It was a non-patented, opensource format that aimed to substitute GIF. 
+Another image standard that succeded more than JPEG2000, was the PNG. It was a non-patented,
+opensource format that aimed to substitute GIF.
 
-It supports 24RGB or 32 bit RGBA (so can have opacity). The file extension is ``.png`` and uses a lossless codec, based on DEFLATE encoding (a mix of LZSS and Huffman).
+It supports 24RGB or 32 bit RGBA (so can have opacity). The file extension is `.png` and uses a
+lossless codec, based on DEFLATE encoding (a mix of LZSS and Huffman).
+
+---
+
+##### Resources
+
+<FileDownloadLink name='Slides T1' filepath='/files/T1 - Image, JPEG and others.pdf' />
+<FileDownloadLink name='Seminar 1' filepath='/files/S1 - FFMPEG.pdf' />
+<FileDownloadLink name='Practical 1' filepath='/files/P1 - JPEG.pdf' />

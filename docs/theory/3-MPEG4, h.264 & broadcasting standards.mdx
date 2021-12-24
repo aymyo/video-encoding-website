@@ -6,132 +6,216 @@ update: 18-11-2021
 
 ## MPEG-4
 
-In this lesson we will talk about more recent video technologies. For starters, we will go over the MPEG-4, which as the name suggests, it was created by the same group, the MPEG, and it's an enhancement of previous versions. It was introduced in late 1998 and designated a standard for a group of audio and video coding formats and related technology agreed upon by the ISO/IEC Moving Picture Experts Group (MPEG) (ISO/IEC JTC1/SC29/WG11) under the formal standard ISO/IEC 14496 – Coding of audio-visual objects.
+In this lesson we will talk about more recent video technologies. For starters, we will go over the
+MPEG-4, which as the name suggests, it was created by the same group, the MPEG, and it's an
+enhancement of previous versions. It was introduced in late 1998 and designated a standard for a
+group of audio and video coding formats and related technology agreed upon by the ISO/IEC Moving
+Picture Experts Group (MPEG) (ISO/IEC JTC1/SC29/WG11) under the formal standard ISO/IEC 14496 –
+Coding of audio-visual objects.
 
+It was a graphics and video compression algorithm standard based on MPEG-1, MPEG-2 and Apple
+QuickTime technology. MPEG-4 is still almost everywhere. Its uses include compression of AV data for
+web (streaming media) and CD distribution, voice (telephone, videophone) and broadcast television
+applications.
 
-It was a graphics and video compression algorithm standard based on MPEG-1, MPEG-2 and Apple QuickTime technology.
-MPEG-4 is still almost everywhere. Its uses include compression of AV data for web (streaming media) and CD
-distribution, voice (telephone, videophone) and broadcast television applications. 
-
-On of the first improvements that it had, was the possibility to handle bigger resolutions, and in this context, HDTV appears: 720p and 1080p (not to confuse with 720i and 1080i: both have 720p and 1080p as resolution but they
-work with interlaced video)
+On of the first improvements that it had, was the possibility to handle bigger resolutions, and in
+this context, HDTV appears: 720p and 1080p (not to confuse with 720i and 1080i: both have 720p and
+1080p as resolution but they work with interlaced video)
 
 - 720p, _or standard HD_, is 1280x720 pixels:
 
-It’s a progressive HDTV signal format with 720 horizontal lines and an aspect ratio (AR) of 16:9, normally known as widescreen HDTV (1.78:1). 
-The frame rate is standards-dependent, and for conventional broadcasting appears in 50 progressive frames per second in former PAL/SECAM countries (Europe, Australia, others), and 59.94 frames per second in former NTSC countries (North America, Japan, Brazil, others). It can change or vary depending on the standard (i.e. broadcasting standards, end of this lesson).
+It’s a progressive HDTV signal format with 720 horizontal lines and an aspect ratio (AR) of 16:9,
+normally known as widescreen HDTV (1.78:1). The frame rate is standards-dependent, and for
+conventional broadcasting appears in 50 progressive frames per second in former PAL/SECAM countries
+(Europe, Australia, others), and 59.94 frames per second in former NTSC countries (North America,
+Japan, Brazil, others). It can change or vary depending on the standard (i.e. broadcasting
+standards, end of this lesson).
 
 - 1080p, or _full HD_, is 1920x1080 pixels:
 
-It’s a set of HDTV. The p stands for progressive scan, i.e. non-interlaced. The term usually assumes a widescreen aspect ratio of 16:9, implying a resolution of 2.1 megapixels. 
+It’s a set of HDTV. The p stands for progressive scan, i.e. non-interlaced. The term usually assumes
+a widescreen aspect ratio of 16:9, implying a resolution of 2.1 megapixels.
 
-Applications of the 1080p standard include television broadcasts, Blu-ray Discs, smartphones, Internet content such as YouTube videos and Netflix TV shows and movies, consumer-grade televisions and projectors, computer monitors and video game consoles. 
-Small camcorders, smartphones and digital cameras can capture still and moving images in 1080p resolution.
+Applications of the 1080p standard include television broadcasts, Blu-ray Discs, smartphones,
+Internet content such as YouTube videos and Netflix TV shows and movies, consumer-grade televisions
+and projectors, computer monitors and video game consoles. Small camcorders, smartphones and digital
+cameras can capture still and moving images in 1080p resolution.
 
-MPEG-4 files are smaller than JPEG or QuickTIme files, so they are designated to transmit video and images over a narrower bandwith and can mix video with text, graphics and 2D or 3D animation layers. This was achieved with:
+MPEG-4 files are smaller than JPEG or QuickTIme files, so they are designated to transmit video and
+images over a narrower bandwith and can mix video with text, graphics and 2D or 3D animation layers.
+This was achieved with:
 
-- **Video Objects and Video Object Planes:** A technique that allowed to to add separate forms or _video objects_ to define the image.
+- **Video Objects and Video Object Planes:** A technique that allowed to to add separate forms or
+  _video objects_ to define the image.
 
 ![VOP](https://user-images.githubusercontent.com/40371955/147288327-420004a4-31f5-4c9f-bbad-fa9ec2720f8f.png)
 
-- **Shape coding**: MPEG-4 video coding is the first to make effort at providing a standardized approach to compress the shape information of objects and contain the compressed results within a video bitstream. Video data can be coded on an object basis.
+- **Shape coding**: MPEG-4 video coding is the first to make effort at providing a standardized
+  approach to compress the shape information of objects and contain the compressed results within a
+  video bitstream. Video data can be coded on an object basis.
 
-The information in the video signal is decomposed to shape, texture, and motion. This information is then coded and transmitted within the bitstream. The shape information is provided in binary format or gray-scale format. The binary
-format of shape information consists of a pixel map.
+The information in the video signal is decomposed to shape, texture, and motion. This information is
+then coded and transmitted within the bitstream. The shape information is provided in binary format
+or gray-scale format. The binary format of shape information consists of a pixel map.
 
-- **Sprite coding:** A sprite is an especially composed VO that is visible throughout an entire piece of video sequence. For example, the sprite generated from a panning sequence contains all the visible pixels of the background throughout the video sequence. Portion of the background may not be seen in certain frames due to the occlusion.
+- **Sprite coding:** A sprite is an especially composed VO that is visible throughout an entire
+  piece of video sequence. For example, the sprite generated from a panning sequence contains all
+  the visible pixels of the background throughout the video sequence. Portion of the background may
+  not be seen in certain frames due to the occlusion.
 
 - **Interlaced video coding**
 - **Wavelet based texture coding**
 - **Generalized Spatial and Temporal Scalability**
 
-- **Error resilience**: MPEG4 provides error robustness and resilience to allow access of image and video data over a wide range of storage and transmission media.
+- **Error resilience**: MPEG4 provides error robustness and resilience to allow access of image and
+  video data over a wide range of storage and transmission media.
 
-- **The container concept** (Introduced in MPEG part 11, or ``.mp4``: It enables that one file can have multiple tracks (video, audio, subtitles) that will be inside the video container.
-![image](https://user-images.githubusercontent.com/40371955/147288840-38725497-c142-4b2a-9de7-224e9045a6d4.png)
+- **The container concept** (Introduced in MPEG part 11, or `.mp4`: It enables that one file can
+  have multiple tracks (video, audio, subtitles) that will be inside the video container.
+  ![image](https://user-images.githubusercontent.com/40371955/147288840-38725497-c142-4b2a-9de7-224e9045a6d4.png)
 
-When we used to see .mpg or .mp2 files, those where unique videos with 1 track encoded with mpeg and mpeg2 codec respectively. Now the container lets us to mix codecs. I.e.: 1 MPEG video track, 2 MP3 audio tracks, 1 AAC audio track, 1 close caption/subtitles track...
+When we used to see .mpg or .mp2 files, those where unique videos with 1 track encoded with mpeg and
+mpeg2 codec respectively. Now the container lets us to mix codecs. I.e.: 1 MPEG video track, 2 MP3
+audio tracks, 1 AAC audio track, 1 close caption/subtitles track...
 
-- **Possibility to add DRM**: Digital rights management (DRM) tools or technological protection measures (TPM) are a
-set of access control technologies for restricting the use of proprietary hardware and copyrighted works. DRM technologies try to control the use, modification, and distribution of copyrighted works (such as software and
-multimedia content), as well as systems within devices that enforce these policies
+- **Possibility to add DRM**: Digital rights management (DRM) tools or technological protection
+  measures (TPM) are a set of access control technologies for restricting the use of proprietary
+  hardware and copyrighted works. DRM technologies try to control the use, modification, and
+  distribution of copyrighted works (such as software and multimedia content), as well as systems
+  within devices that enforce these policies
 
 - Lastly, the last versions of MPEG4 introduced for the first time a new codec for video: h264.
 
 ### h264
 
-Also known as AVC (Advanced Video Coding) or MPEG-4 Part 10, Advanced Video Coding (MPEG4 AVC), is a video compression standard based on block-oriented, motion-compensated integerDCT coding. It is by far the most commonly used format for the recording, compression, and distribution of video content, used by 91% of video industry developers as of September 2019. It supports resolutions up to and including 8K UHD.
+Also known as AVC (Advanced Video Coding) or MPEG-4 Part 10, Advanced Video Coding (MPEG4 AVC), is a
+video compression standard based on block-oriented, motion-compensated integerDCT coding. It is by
+far the most commonly used format for the recording, compression, and distribution of video content,
+used by 91% of video industry developers as of September 2019. It supports resolutions up to and
+including 8K UHD.
 
-To provide a little of historical context, until the launch of h264 (which will be explained in the next sections), if you wanted to use MPEG-1 or MPEG-2 it was necessary to pay royalties to the owner of the codec. And until then, it was a full monopoly of the MPEG. However, from 2001, h264 started to compete with royalty-free codecs.
+To provide a little of historical context, until the launch of h264 (which will be explained in the
+next sections), if you wanted to use MPEG-1 or MPEG-2 it was necessary to pay royalties to the owner
+of the codec. And until then, it was a full monopoly of the MPEG. However, from 2001, h264 started
+to compete with royalty-free codecs.
 
 ![royalty](https://user-images.githubusercontent.com/40371955/147291151-7db93354-7796-48bb-86e8-bbe952f0a7a5.png)
 
-As MPEG2 was born due to achieve a broadcasting tech upgrade: compress interlaced broadcasting, and get digital video into satellite, cable, etc.; MPEG4 was born just to get better compression bitrate, with the aim of sending video through the internet. It had to main improvements:
+As MPEG2 was born due to achieve a broadcasting tech upgrade: compress interlaced broadcasting, and
+get digital video into satellite, cable, etc.; MPEG4 was born just to get better compression
+bitrate, with the aim of sending video through the internet. It had to main improvements:
 
-- **Motion compensation:** Instead of 16x16 macroblocks, now they have a variable block size. This way, bigger block can be used for areas where the color is very similar.
+- **Motion compensation:** Instead of 16x16 macroblocks, now they have a variable block size. This
+  way, bigger block can be used for areas where the color is very similar.
 
 ![variableblocksize](https://user-images.githubusercontent.com/40371955/147290573-6f3f118f-9034-4469-8e71-e91fc9e60aed.png)
 
-- **New entropy coding** at the end of the workflow: instead of using a variable length coding based on huffman, MPEG4 intruduces to new algorithms -> CAVLC (Context Adaptative Variable Length Coding) and CABAC (Context Adatpative Binary Arithmetic Coding). They will substitute the RLE, being also lossless.
+- **New entropy coding** at the end of the workflow: instead of using a variable length coding based
+  on huffman, MPEG4 intruduces to new algorithms -> CAVLC (Context Adaptative Variable Length
+  Coding) and CABAC (Context Adatpative Binary Arithmetic Coding). They will substitute the RLE,
+  being also lossless.
 
-In H.264/MPEG-4 AVC, CAVLC it is used to encode residual, zig-zag order, blocks of transform coefficients. CABAC is notable for providing much better compression than most other entropy encoding algorithms used in video encoding. 
-CAVLC requires considerably less processing to decode than CABAC, although it does not compress the data quite as
-effectively. 
+In H.264/MPEG-4 AVC, CAVLC it is used to encode residual, zig-zag order, blocks of transform
+coefficients. CABAC is notable for providing much better compression than most other entropy
+encoding algorithms used in video encoding. CAVLC requires considerably less processing to decode
+than CABAC, although it does not compress the data quite as effectively.
 
 ---
 
-It's estimated the bitrate savings can be as much as 50% or more compared to MPEG-2. [This video](https://www.youtube.com/watch?v=PmoEsPWEdOA) explains graphically the h264 compression technology.
+It's estimated the bitrate savings can be as much as 50% or more compared to MPEG-2.
+[This video](https://www.youtube.com/watch?v=PmoEsPWEdOA) explains graphically the h264 compression
+technology.
 
 ## Broadcasting standards
 
-Although this section is more related to telecommunications, it is interesting to understand how TV is broadcasted and see real life applications of video encoding. Also, explanations about MPEG-TS will be avoided, since it's not strictly necessary to understand the bigger picture. You just need to know that Transport Stream exists. Think about that as an IPTV MPEG container.
+Although this section is more related to telecommunications, it is interesting to understand how TV
+is broadcasted and see real life applications of video encoding. Also, explanations about MPEG-TS
+will be avoided, since it's not strictly necessary to understand the bigger picture. You just need
+to know that Transport Stream exists. Think about that as an IPTV MPEG container.
 
-In the follwing map you can sww the four digital TV standards and their applications depending on each country. As you can see their applications is very dependant on geopolitics economic trades.
+In the follwing map you can sww the four digital TV standards and their applications depending on
+each country. As you can see their applications is very dependant on geopolitics economic trades.
 
 ![tvmap](https://user-images.githubusercontent.com/40371955/147291729-a9c844f2-3692-42aa-aa8a-e5c4d04bb544.png)
 
-Signals can either be: _terrestial_ (also named aerial) through antennas, _satellital_ or through _cable_. The last letter of each acronym corresponds to the medium in which they are transmitted. This can be applied to all broadcasting standards: ISDB-T, ATSC-C, DVB-T, etc
+Signals can either be: _terrestial_ (also named aerial) through antennas, _satellital_ or through
+_cable_. The last letter of each acronym corresponds to the medium in which they are transmitted.
+This can be applied to all broadcasting standards: ISDB-T, ATSC-C, DVB-T, etc
 
 ### DVB (Digital Video Broadcasting)
 
-DVB is a set of international open standards for digital television. DVB standards are maintained by the DVB Project, an international industry consortium, and are published by a Joint Technical Committee (JTC) of the European Telecommunications Standards Institute (ETSI), European Committee for Electrotechnical Standardization (CENELEC) and European Broadcasting Union (EBU).
+DVB is a set of international open standards for digital television. DVB standards are maintained by
+the DVB Project, an international industry consortium, and are published by a Joint Technical
+Committee (JTC) of the European Telecommunications Standards Institute (ETSI), European Committee
+for Electrotechnical Standardization (CENELEC) and European Broadcasting Union (EBU).
 
-For video it uses MPEG2 and h.264. Usually is MPEG2 for SD channels and .h264 for HD channels. For audio, it uses AAC, Dolby Digital (AC-3) and MP3.
+For video it uses MPEG2 and h.264. Usually is MPEG2 for SD channels and .h264 for HD channels. For
+audio, it uses AAC, Dolby Digital (AC-3) and MP3.
 
-The following screenshots are real examples from _Castilla la Mancha TV_ (Spain) and a german news channel. In the first one we can see the tracks inside the MPEG Transport Stream container, several audio tracks in different codecs and a main video track. On the other one we see the same specs in the video, several audio tracks and two info tracks, subtitle and teletext, all in the same container.
+The following screenshots are real examples from _Castilla la Mancha TV_ (Spain) and a german news
+channel. In the first one we can see the tracks inside the MPEG Transport Stream container, several
+audio tracks in different codecs and a main video track. On the other one we see the same specs in
+the video, several audio tracks and two info tracks, subtitle and teletext, all in the same
+container.
 
 ![realexample](https://user-images.githubusercontent.com/40371955/147292769-832def9b-2e0a-4159-a96a-112e0ed4c7b3.png)
 
-### ISDB 
+### ISDB
 
-The Integrated Services Digital Broadcasting (ISDB; Japanese: 統合デジタル放送サービス, Tōgō dejitaru hōsō sābisu) is a Japanese standard for digital television (DTV) and digital radio used by the country's radio and television networks.
-ISDB replaced NTSC-J analog television system and the previously used MUSE Hi-vision analogue HDTV system in Japan, and replacing NTSC, PAL-M and PAL-N in South America and the Philippines.
+The Integrated Services Digital Broadcasting (ISDB; Japanese: 統合デジタル放送サービス, Tōgō
+dejitaru hōsō sābisu) is a Japanese standard for digital television (DTV) and digital radio used by
+the country's radio and television networks. ISDB replaced NTSC-J analog television system and the
+previously used MUSE Hi-vision analogue HDTV system in Japan, and replacing NTSC, PAL-M and PAL-N in
+South America and the Philippines.
 
-For video, as DVB: MPEG2, h.264. The first for SD channels and the latter for HD ones. Except on ISDB-Tb (Brazilian & Latam), which uses only .h264.
-For audio it only uses AAC.
+For video, as DVB: MPEG2, h.264. The first for SD channels and the latter for HD ones. Except on
+ISDB-Tb (Brazilian & Latam), which uses only .h264. For audio it only uses AAC.
 
-The following is a real life example from public Ecuatorian TV. As you can see, it uses always h.264 for both SD and HD channels.
+The following is a real life example from public Ecuatorian TV. As you can see, it uses always h.264
+for both SD and HD channels.
 
 ![quitoTV](https://user-images.githubusercontent.com/40371955/147293173-1adf2ee5-860d-4846-a6cb-90c123a29785.png)
 
 ### ATSC
 
-ATSC, Advanced Television Systems Committee (ATSC) standards are a set of standards for digital television transmission over terrestrial, cable, and satellite networks. It is largely a replacement for the analog NTSC standard, and like that standard, used mostly in the United States, Mexico and Canada. Other former users of NTSC, like Japan, have not used ATSC during their digital television transition because they adopted their own system, ISDB.
+ATSC, Advanced Television Systems Committee (ATSC) standards are a set of standards for digital
+television transmission over terrestrial, cable, and satellite networks. It is largely a replacement
+for the analog NTSC standard, and like that standard, used mostly in the United States, Mexico and
+Canada. Other former users of NTSC, like Japan, have not used ATSC during their digital television
+transition because they adopted their own system, ISDB.
 
-ATSC includes two primary high definition video formats, 1080i and 720p. It also includes standard-definition formats, although initially only HDTV services were launched in the digital format. ATSC can carry multiple channels of information on a single stream.
+ATSC includes two primary high definition video formats, 1080i and 720p. It also includes
+standard-definition formats, although initially only HDTV services were launched in the digital
+format. ATSC can carry multiple channels of information on a single stream.
 
-For video channels, it works as DVB: MPEG2 for SD and .h264 for HD. However, for audio it uses AC-3, not a very performant codec ([here](https://en.wikipedia.org/wiki/Grand_Alliance_(HDTV)) you can learn more about why).
+For video channels, it works as DVB: MPEG2 for SD and .h264 for HD. However, for audio it uses AC-3,
+not a very performant codec ([here](<https://en.wikipedia.org/wiki/Grand_Alliance_(HDTV)>) you can
+learn more about why).
 
-As before, in the following image there's a real life example from USA and Mexican TV. As you can see they use the AC-3 for audio, and the USA TV has an additional data track that sends timecodes to inform where the advertisments are placed.
+As before, in the following image there's a real life example from USA and Mexican TV. As you can
+see they use the AC-3 for audio, and the USA TV has an additional data track that sends timecodes to
+inform where the advertisments are placed.
 
 ![usamexTV](https://user-images.githubusercontent.com/40371955/147293550-4a4b3caa-0163-4a0a-b010-1fbabfc8ee45.png)
 
 ### DTMB
 
-Previously known as DMB-T/H (Digital Multimedia Broadcast-Terrestrial/Handheld), the DTMB is a merger of the standards ADTB-T (developed by the Shanghai Jiao Tong University), DMB-T (developed by Tsinghua University) and TiMi (Terrestrial Interactive Multiservice Infrastructure); this last one is the standard proposed by the Academy of
-Broadcasting Science in 2002. The DTMB was created in 2004 and finally became an official DTT standard in 2006.
+Previously known as DMB-T/H (Digital Multimedia Broadcast-Terrestrial/Handheld), the DTMB is a
+merger of the standards ADTB-T (developed by the Shanghai Jiao Tong University), DMB-T (developed by
+Tsinghua University) and TiMi (Terrestrial Interactive Multiservice Infrastructure); this last one
+is the standard proposed by the Academy of Broadcasting Science in 2002. The DTMB was created in
+2004 and finally became an official DTT standard in 2006.
 
-For video it uses its own codecs: AVS, AVS+ and MPEG2, h.264. AVS is a chinese codec very similar to .h264.
-For audio, it uses  DRA, AAC, AC-3, MP2, MP3. Being DRA (Dynamic Resolution Adaptation) the chinese own audio codec.
+For video it uses its own codecs: AVS, AVS+ and MPEG2, h.264. AVS is a chinese codec very similar to
+.h264. For audio, it uses DRA, AAC, AC-3, MP2, MP3. Being DRA (Dynamic Resolution Adaptation) the
+chinese own audio codec.
 
+---
 
+##### Resources
+
+<FileDownloadLink
+  name='Slides T3'
+  filepath='/files/T3 - MPEG4, h.264 and Broadcasting standards.pdf'
+/>
+<FileDownloadLink name='Seminar 2' filepath='/files/S2 - More FFMPEG  More Python.pdf' />

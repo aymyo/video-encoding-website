@@ -229,7 +229,7 @@ const VideoSettings: FC<VideoSettingsProps> = ({
     return (
       <div className='relative min-w-256 w-80 flex flex-col justify-start'>
         <h2 className='font-serif text-xl text-left mb-4'>
-          This web tool uses the{' '}
+          This web tool uses the <br />
           <a className='link' href='https://ffmpegwasm.netlify.app/'>
             ffmpeg.wasm
           </a>{' '}
