@@ -4,4 +4,125 @@ summary: The video codecs
 update: 18-11-2021
 ---
 
-Empty
+## Codec Wars
+
+Codec wars is a term used in the industry to refer to movements of technological companies towards video codecs. The term started back around 2004, when internet access was democratized and higher speeds were achieved. It was then cheaper and easier to access fiber connections depcrecating the old modems and letting users connect to high speeds through an ethernet cable.
+
+In this context, video over IP (IPTV) started to roll out. IPTV (Internet Protocol TeleVision) is a wide concept to express all video delivered through the internet. As the Moore's law dictates, encoding processing was way faster than before, allowing to do in real-time encoding that was previouly impossible. In this environment, some companies related to video started to grow, such as: 
+
+- **Netflix**: starting out as an ordinary mail movie rental service, competitor of _Blockbuster_. They started to do data-mining and big data to make individual film documentations through their website, and allowed to order the DVDs from there. The competition was hard, and just before bankrupcy in 2005, they started sharing online its content as a last resort strategy, which worked very well.
+
+- **Youtube**: created by 3 former Paypal employees in February 2005, aimed to be an enhancment for blogs and social networks, a service to upload
+content and insert it into user’s website. Myspace users started adopt this service in their comments and profiles, increasing its popularity. Before _Youtube_, when a company wanted to have videos in their website, they needed to take care of encoding, storage, delivery, web player, etc. When _Nike_ launched a Ronaldinho ad in late 2005 using _Youtube_, other companies started to focus on it, and finally, on October 2006 Google bought it for 1650M$. 
+
+### Current situation
+
+The two companies listed before had been for years the biggest promoters of video through the internet for commercial and non-commercial use. However, over the past few years, specially after the covid pandemic, a lot of video on demand companies have appeard to share the pie:
+
+![useVoDuse](https://user-images.githubusercontent.com/40371955/147357779-ba812548-089e-4d28-a826-e52cb8aa4dd9.png).
+
+In fact, video traffic through the internet has increased exponentially, representing now an estimated **70% - 80% of internet traffic**. 
+
+ This situation changed the aproach towards future video codecs, which as we've seen, are always created to solve technological challenges. This are the technological challenges of today, focused on IPTV:
+ 
+ - **Reduce data** to decrease storage costs
+ - **Reduce bitrate** to make delivery faster
+ - **Reduce complexity** to reduce latency
+
+And all of those challanges, of course, **without loosing quality**.
+
+Taking this into account, new codecs appeared, starting to break the monopoly of the MPEG, and started the _codec wars_. Companies started to explore royalty-free codecs to reduce costs (the same way _Apple_ started to use their own audio codec to avoid paying royalties to MP3). This generated a competition between codecs in order to become the standard. This is used by companies as a weapon against competitors, making better or worse support of codecs in their hardware or browsers.
+
+![codeccomparison](https://user-images.githubusercontent.com/40371955/147358488-3a259d57-71ad-47b5-afad-0dcd1ae4fd6a.png)
+
+A summary of this technological-economic wars is: If you get a patent, you get paid. If you develop better codecs, you can offer better services and user experiences for
+your customers. You can push or block other companies’ codecs in your hardware to avoid them to succeed. This is not only done through codecs (i.e. Twitch vs Youtube).
+A clear historical example of this technological format competition can be _VHS vs BetaMax_. It’s was the first time that big companies were fighting with codecs to get a
+bigger share of the market. VHS was developed by _Panasonic_ and _Sony_ developed Betamax. The latter was technologically superior, but the relations of Panasonic at the time with the cinema industry forced the Betamax to become obsolete. 
+
+## VP8
+
+Despite being open source, VP8 is owned by Google (_codec wars!_). In May 2010, after the purchase of On2 Technologies, Google provided an irrevocable patent promise on its patents for implementing the VP8 format, and released a specification of the format under the Creative Commons Attribution 3.0 license. That same year, Google also released libvpx, the reference implementation of VP8, under the revised BSD license.
+
+Opera, Firefox, Chrome, and Chromium support playing VP8 video in HTML5 video tag. Internet Explorer officially supports VP8 with a separate codec. According to Google
+VP8 is mainly used in connection with WebRTC and as a format for short looped animations, as a replacement for the Graphics Interchange Format (GIF).
+
+![vp8diagram](https://user-images.githubusercontent.com/40371955/147359177-32bc18df-05d0-465b-87f6-f6533038e91d.png)
+
+As you can see, all video codecs are based on the same concept, but with little differences. VP8 is very similar to h264, it changes the prediction modes (motion compensation) and uses DCT with 4x4 macroblocks and Hardamard transform.
+
+VP8 only supports progressive scan video signals with 4:2:0 chroma subsampling and 8 bits per sample. Macro blocks can comprise 4×4, 8×8, or 16×16 samples and motion vectors have quarter-pixel precission. 
+
+An interesting change in this codec is the addiction of _altframes_ (alternative frames), which can serve as reference-only frames and can be deactivated. The encoder can fill them with arbitrary useful image data, even from future frames, and thereby serve the same purpose as the b-frames of the MPEG formats.
+
+### Matroska files
+
+The VP8 also added its own kind of file, the **Matroska** ``.mkv``. The Matroska Multimedia Container is a free, open-standard container format, a file format that can hold an unlimited number of video, audio, picture, or subtitle tracks in one file. Matroska is similar in concept to other containers like AVI, MP4, or Advanced Systems Format (ASF), but is entirely open in specification, with implementations consisting mostly of open source software.
+
+In 2010, it was announced that the WebM audio/video format would be based on a profile of the Matroska container format together with VP8 video and Vorbis audio. It’s also used for illegal BlueRay Disc rips and it added support to the next codec we’ll see: h265.
+
+## h265
+
+Also known as HEVC (High Efficiency Video Coding) is the .h264 successor, and offers from 25% to 50% better data compression at the same level of video quality, or substantially improved video quality at the same bit rate. It supports resolutions up to 8192×4320, including 8K UHD.
+
+While .h264 uses the integer discrete cosine transform (DCT) with 4x4 and 8x8 block sizes, HEVC uses integer DCT and DST transforms with varied block sizes between 4x4 and 32x32. The High Efficiency Image Format (HEIF) is based on HEVC. As of 2019, HEVC is used by 43% of video developers, and is the second most widely used video coding format after .h264. It has a basic free version; but it’s patented and theorically you should pay if you use .mp4 files. 
+
+The HEVC video coding layer uses the same "hybrid" approach used in all modern video standards: it uses inter-/intra-picture prediction and 2D transform coding. The HEVC encoder first proceeds by splitting a picture into block shaped regions for the first picture, or the first picture of a random access point, which uses intra-picture prediction. After the prediction methods are finished and the picture goes through the loop filters, the final picture representation is stored in the decoded picture buffer, which then can be used for the prediction of other pictures. Another characteristic is its lack of native support of interlaced video. 
+
+HEVC replaces 16×16 pixel macroblocks, which were used with previous standards, with coding tree units (CTUs) which can use larger block structures of up to 64x64 samples and can better sub-partition the picture into variable sized structures. HEVC initially divides the picture into CTUs which can be 64×64, 32×32, or 16×16 with a larger pixel block size usually increasing the coding efficiency.
+
+It also uses a new version of CABAC, and itroduces new modes for motion estimation (33 vector possibilities). It has a longer filter for chroma subsampling, and lots of other filters and small interal upgrates. 
+
+![comparisonh264h265](https://user-images.githubusercontent.com/40371955/147360234-bf25086e-cefa-4414-b6c1-fa93ebc585ff.png)
+
+The most important aspect about the codec is its huge reduction of the size of the files compared to h264, and the mantainment of video quality. The estimated ratio is between -25% and -50% bitrate reduction. On the other hand, it's not fully supported on Chrome & Firefox (_codec wars!_).
+
+## VP9
+
+VP9 is an open and royalty-free video coding format developed by Google. Its the successor to VP8 and competes mainly with MPEG's HEVC (H.265, as recently seen). At first, VP9 was mainly used on Google's video platform YouTube, however, the emergence of the Alliance for Open Media, and its support for the ongoing development of the successor AV1, of which Google took part, led to growing interest in the format. In contrast to HEVC, VP9 support is common among web browsers. The combination of VP9 video and Opus audio in the WebM container, as served by YouTube, was supported by roughly 80% of the browser market (mobile included) as of June 2018.
+
+The single holdout among major modern-day browsers is Apple's Safari (_codec wars!_). Android has supported VP9 since version 4.4 KitKat. Parts of the format are covered by patents held by Google. The company grants free usage of its own related patents based on reciprocity, i.e. as long as the user does not engage in patent litigations.
+
+VP9 has many design improvements compared to VP8: 
+
+- Support for the use of coding units of 64×64 pixels. This is especially useful with high-resolution video.
+- Improved prediction of motion vectors. In addition to VP8's four modes (average/"DC", "true motion", horizontal, vertical), VP9 supports six oblique directions for linear extrapolation of pixels in intraframe prediction.
+- Other small upgrades such as:
+  - eighth-pixel precision for motion vectors
+  - three different switchable 8-tap subpixel interpolation filters
+  - improved selection of reference motion vectors
+  - improved coding of offsets of motion vectors to their reference
+  - improved entropy coding
+  - improved and adapted (to new block sizes) loop filtering
+  - the asymmetric discrete sine transform (ADST)
+  - larger discrete cosine transforms (DCT, 16×16 and 32×32)
+  - improved segmentation of frames into areas with specific similarities (e.g. fore-/background)
+
+Another peculiarity is that trasnform coefficients are scanned in a round pattern (increasing distance from the corners):
+![vp9pattern](https://user-images.githubusercontent.com/40371955/147360735-1e788602-ab42-4cf1-8e71-fb0574b7230b.png)
+
+### WebM
+
+As the previous codec, it has its own video file ``.WEBM``. WebM is an audiovisual media file format, which is primarily intended to offer a royaltyfree alternative to use in the HTML5 video and the HTML5 audio elements. It has a sister project WebP for images. The development of the format is sponsored by Google, and the corresponding software is
+distributed under a BSD license.
+
+The WebM container is based on a profile of Matroska. WebM initially supported VP8 video and Vorbis audio streams. In 2013, it was updated to accommodate VP9 video and Opus
+audio.
+
+Native WebM support by Mozilla Firefox, Opera, and Google Chrome was announced at the 2010 Google I/O conference. Didn’t had support on Microsoft Edge/Explorer until 2017 and its still not supported on Safari (_you already know what to say here_).
+
+## AV1 - the real future?
+
+AOMedia Video 1 (AV1) is an open, royalty-free video coding format designed for video transmissions over the Internet. It was developed as a successor to VP9 by the Alliance for Open Media (AOMedia), a consortium founded in 2015 that includes semiconductor firms, video on demand providers, video content producers, software development companies and web browser vendors. 
+
+The AV1 bitstream specification includes a reference video codec. In Facebook testing that approximates real world conditions AV1 achieved **34%, 46.2% and 50.3%** higher data compression than libvpx-vp9, x264 high profile, and x264 main profile respectively. This codec is very promising, with the only drawback of needing very powerful machines to encode.
+
+![av1diagram](https://user-images.githubusercontent.com/40371955/147361919-cf37e949-e895-43d9-916b-e752588e5bc7.png)
+
+Several of the Alliance's founding members, including Google (VP10), Mozilla (Daala) and Cisco (Thor), had ongoing research projects into royalty-free video and incorporated
+aspects of each into AV1, but the patent owner is Google.
+
+As for the technology, if you want to learn about how it works, go the the slides in PDF (ADD LINK).
+
+Some companies such as _Youtube, Netflix, Facebook_ or _Twitch_ are starting to use this codec.
+
