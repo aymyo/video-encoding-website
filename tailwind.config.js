@@ -1,6 +1,6 @@
+/* eslint-disable quotes */
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./pages/**/*.{html,js,tsx}', './components/**/*.{html,js,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -58,9 +58,6 @@ module.exports = {
         circle: 'circle'
       }
     }
-  },
-  variants: {
-    extend: {}
   },
   plugins: []
 };
