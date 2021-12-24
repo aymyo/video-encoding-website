@@ -11,12 +11,12 @@ Let's start this second theory lesson by explaining another couple of basic conc
 The **aspect ratio** describes the proportional relationship between the width and height of an image, video, or pixel. If we apply it to screens, we call it Display Aspect Ratio (DAR). It is
 defined as two numbers divided by a semicolon, for example:
 
-![dar](https://user-images.githubusercontent.com/40371955/147265647-f3467423-ab0c-42dd-9118-2916c9284c09.png)
+![aspectratio](https://user-images.githubusercontent.com/40371955/147374215-1e7ee221-62ea-48bc-86c9-32de4034ade4.png)
 
 The concept can also be used for píxels, so the PAR will describe the relationship between height
 and width or the shape of the píxel.
 
-![par](https://user-images.githubusercontent.com/40371955/147266074-b1b6f157-ae95-49da-a7b9-b64368a0f276.png)
+![pixelratio](https://user-images.githubusercontent.com/40371955/147374222-07a57c88-81e5-4faa-8eec-510b3a72aaac.png)
 
 Before we explore the video formats, let's agree on what a **video** is. We can define a video as a succession of _n_ frames in time (which we can see as another dimension). This _n_ is the framerate of frames per second (fps).
 
@@ -28,7 +28,7 @@ _ 240 \* 24) if we don't employ any kind of compression.
 
 When the bitrate is nearly constant, we call it CBR (constant bit rate). On the other hand, if it's variable, VBR (variable bit rate).
 
-![bitrateconstantvariable](https://user-images.githubusercontent.com/40371955/147267211-9c89857d-12e8-4278-9a24-43e58d17f935.png)
+![variablebitrate](https://user-images.githubusercontent.com/40371955/147374235-da21a10d-de27-4738-baf5-b6d5c6d266a6.png)
 
 There are also techniques to double the perceived framerate without consuming extra bandwidth. The
 first one used was _interlaced video_, which sent half of the screen in one frame, and the other half in the other frame skipping every other line. Nowadays _progressive scan video_ is used, which displays, stores, or transmits moving images drawing all the lines of each frame in a sequence.
@@ -135,7 +135,7 @@ This process is split into three parts:
 Once we have the motion vector for each block, we perform the **block matching** where we apply the
 vector to the original block and make it match with the next frame, for every block. As before, further information can be found in the slides PDF.
 
-![blockmatch](https://user-images.githubusercontent.com/40371955/147282129-1474f070-bd7b-432d-8a5a-aa08536dee31.png)
+![blockmatching](https://user-images.githubusercontent.com/40371955/147374245-bd63855f-cefb-46a1-b6e2-4ec313cd9174.png)
 
 - Encoding: as performed in the JPEG format: DCT->Quantize->Run-length encoding->Entropy encoding
 (Huffman)
