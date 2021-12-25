@@ -1,18 +1,10 @@
-import fs from 'fs';
-import matter from 'gray-matter';
-import { GetStaticProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import path from 'path';
 
 import Layout from '../components/Layout';
-import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../utils/mdxUtils';
 
-interface ErrorPageProps {
-  docs: mdxDoc[];
-}
-
-const ErrorPage: NextPage<ErrorPageProps> = ({ docs }) => {
+const ErrorPage: NextPage = () => {
   const path = useRouter().asPath;
   return (
     <Layout>
@@ -43,18 +35,3 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ docs }) => {
 };
 
 export default ErrorPage;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const docs = theoryFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(THEORY_PATH, filePath));
-    const { content, data } = matter(source);
-
-    return {
-      content,
-      data,
-      filePath
-    };
-  });
-
-  return { props: { docs } };
-};
