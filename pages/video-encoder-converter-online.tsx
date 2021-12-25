@@ -2,13 +2,8 @@ import { NextPage } from 'next';
 
 import Layout from '../components/Layout';
 import VideoEncoderTool from '../components/VideoEncoderTool';
-import { mdxDoc } from '../utils/mdxUtils';
 
-interface WebToolsProps {
-  docs: mdxDoc[];
-}
-
-const WebTools: NextPage<WebToolsProps> = ({ docs }) => {
+const WebTools: NextPage = () => {
   return (
     <Layout>
       <img
