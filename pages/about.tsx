@@ -33,18 +33,18 @@ const AboutPage: NextPage<AboutPageProps> = () => {
             part of its Engineering Audiovisual Systems degree. <br /> <br />
           </p>
           <p>
-            It was developed to make it more comfortable for both students and teachers to manage,
-            modify and share the course information. <br /> <br />
+            It aims to make it more comfortable for both students and teachers to manage, modify and
+            share the course information. <br /> <br />
           </p>
           <p>
             If you see any mistake, typo, or you found information that could complement what is
-            showcased on this site, feel free to make a pull request with your proposal using the
-            button at the bottom of the pages. <br /> <br />
+            showcased on this site, feel free to make a <i>pull request</i> with your proposal using
+            the button at the bottom of the lessons. <br /> <br />
           </p>
           <p>
-            Additionally, we are making the knowledge open to anyone interested in it. If you are
-            not enrolled in the course, you are free to roam around the site and learn as much as
-            you want! But of course, do not expect any certificate or evaluation.
+            Additionally, it opens the knowledge to anyone interested in it. If you are not enrolled
+            in the course, be free to roam around the site and learn as much as you want! But of
+            course, you will not get any certificate or evaluation.
           </p>
         </div>
 
