@@ -71,7 +71,8 @@ then coded and transmitted within the bitstream. The shape information is provid
 
 - **The container concept** (Introduced in MPEG part 11, or `.mp4`: It enables that one file can
   have multiple tracks (video, audio, subtitles) that will be inside the video container.
-  ![container](https://user-images.githubusercontent.com/40371955/147288840-38725497-c142-4b2a-9de7-224e9045a6d4.png)
+ 
+ ![container](https://user-images.githubusercontent.com/40371955/147374591-fb238bee-d187-4f87-969d-831478ae2889.png)
 
 When we used to see `.mpg` or `.mp2` files, those were unique videos with 1 track encoded with MPEG
 and MPEG2 codec respectively. Now the container lets us mix codecs. I.e.: 1 MPEG video track, 2 MP3
@@ -107,7 +108,7 @@ bitrate, to send video through the internet. It had two main improvements:
 - **Motion compensation:** Instead of 16x16 macroblocks, now they have a variable block size. This
   way, bigger blocks can be used for areas where the color is very similar.
 
-![variableblocksize](https://user-images.githubusercontent.com/40371955/147290573-6f3f118f-9034-4469-8e71-e91fc9e60aed.png)
+![variableblocksize](https://user-images.githubusercontent.com/40371955/147374603-a312ac04-a828-4627-a0b1-b60e329775f1.png)
 
 - **New entropy coding** at the end of the workflow: instead of using a variable-length coding based
   on Huffman, MPEG4 introduced two new algorithms -> CAVLC (Context Adaptative Variable Length
