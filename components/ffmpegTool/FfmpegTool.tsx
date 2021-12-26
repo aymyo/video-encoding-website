@@ -38,6 +38,7 @@ const FfmpegTool: FC = () => {
   });
   const [message, setMessage] = useState('');
   const [progress, setProgress] = useState(0);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const ffmpeg = createFFmpeg({
     log: true,
@@ -50,6 +51,8 @@ const FfmpegTool: FC = () => {
     const a = SharedArrayBuffer;
   } catch (e) {
     console.log(e instanceof ReferenceError); // true
+    if (!errorMsg)
+      setErrorMsg('There is an issue with the SharedArrayBuffer, reload and try again');
   }
 
   const doTranscode = async () => {
@@ -129,6 +132,20 @@ const FfmpegTool: FC = () => {
         <InputBox uploadedFile={uploadedFile} setUploadedFile={setUploadedFile} ffmpeg={ffmpeg} />
         <CurrentStep />
       </div>
+      {errorMsg && (
+        <div className='flex justify-center italic items-center'>
+          <p className='text-accentPrimary text-lg font-bold mr-2'>Warning:</p>
+          <p>{errorMsg}</p>
+          <button
+            onClick={() => {
+              //Dirty workaround to empty memory
+              window.location.reload();
+            }}
+            className='btn text-sm ml-2'>
+            &#8634; Reload
+          </button>
+        </div>
+      )}
     </div>
   );
 };
