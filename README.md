@@ -14,7 +14,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 The following libraries have been used:
 
 - [TailwindCSS](https://tailwindcss.com/)
-- 
+- [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+- [react-dropzone](https://github.com/react-dropzone/react-dropzone)
 
 ### Run it locally
 
