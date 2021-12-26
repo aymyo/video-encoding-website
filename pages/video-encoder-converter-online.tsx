@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 
-import Layout from '../components/Layout';
-import VideoEncoderTool from '../components/VideoEncoderTool';
+import FfmpegTool from '../components/ffmpegTool/FfmpegTool';
+import Layout from '../components/layouts/Layout';
 
 const WebTools: NextPage = () => {
   return (
@@ -18,7 +18,7 @@ const WebTools: NextPage = () => {
         width='512px'
         className='opacity-50 absolute top-40 z-0 left-0  -ml-96 lg:-ml-64 xl:-ml-54'
       />
-      <VideoEncoderTool />
+      <FfmpegTool />
     </Layout>
   );
 };

@@ -4,7 +4,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import path from 'path';
 
-import Layout from '../components/Layout';
+import Layout from '../components/layouts/Layout';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../utils/mdxUtils';
 
 interface HomepageProps {

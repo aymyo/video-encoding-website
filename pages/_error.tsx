@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 
-import Layout from '../components/Layout';
+import Layout from '../components/layouts/Layout';
 
 const ErrorPage: NextPage = () => {
   const path = useRouter().asPath;

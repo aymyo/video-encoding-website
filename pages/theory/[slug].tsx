@@ -9,10 +9,10 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 
-import CustomLink from '../../components/CustomLink';
-import DocNav from '../../components/DocNav';
-import Layout from '../../components/Layout';
-import SideMenu from '../../components/SideMenu';
+import DocNav from '../../components/layouts/DocNav';
+import Layout from '../../components/layouts/Layout';
+import SideMenu from '../../components/layouts/SideMenu';
+import CustomLink from '../../components/markdown/CustomLink';
 import styles from '../../styles/mdx.module.scss';
 import { mdxDoc, THEORY_PATH, theoryFilePaths } from '../../utils/mdxUtils';
 hljs.registerLanguage('javascript', javascript);
@@ -29,7 +29,7 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  FileDownloadLink: dynamic(() => import('../../components/FileDownloadLink')),
+  FileDownloadLink: dynamic(() => import('../../components/markdown/FileDownloadLink')),
   Head
 };
 

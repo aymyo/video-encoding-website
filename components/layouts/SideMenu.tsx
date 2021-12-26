@@ -3,7 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 
-import { mdxDoc } from '../utils/mdxUtils';
+import { mdxDoc } from '../../utils/mdxUtils';
 
 interface SideMenuProps {
   items: mdxDoc[];

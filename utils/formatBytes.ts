@@ -7,3 +7,9 @@ export function formatBytes(bytes: number, decimals?: number): string {
     i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
+
+export const comparePercentageSizeChange = (before: number, after: number): string => {
+  if (before > after) return `now ${(100 - (after / before) * 100).toFixed(2)}% smaller`;
+  else if (before < after) return `now ${((after / before) * 100 - 100).toFixed(2)}% larger`;
+  else return 'the same size';
+};

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { mdxDoc } from '../utils/mdxUtils';
+import { mdxDoc } from '../../utils/mdxUtils';
 
 interface DocNavProps {
   slug: string;
