@@ -2,7 +2,7 @@
 <img alt="Title: Video Encoding Course" src="https://user-images.githubusercontent.com/40371955/147414103-3600cdc8-d306-47b5-aeea-a0a32df33edc.png">
 </div>
 
-| This is the code of the website for the Video Codification Systems course at Pompeu Fabra University. It contains all the content of the subject, along with video lessons and a video encoding tool.
+| The website for the Video Codification Systems course at Pompeu Fabra University. It contains all the content of the subject, along with video lessons and a video encoding tool.
 |---|
 
 The website is live and hosted at: https://video-encoding-course.vercel.app/ 
