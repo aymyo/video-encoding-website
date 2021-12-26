@@ -47,12 +47,13 @@ const FfmpegTool: FC = () => {
     }
   });
 
+  // Check that the SharedArrayBuffer is available
   try {
     const a = SharedArrayBuffer;
   } catch (e) {
     console.log(e instanceof ReferenceError); // true
     if (!errorMsg)
-      setErrorMsg('There is an issue with the SharedArrayBuffer, reload and try again');
+      setErrorMsg('There is an issue with the SharedArrayBuffer, reload and try again.');
   }
 
   const doTranscode = async () => {
@@ -128,14 +129,12 @@ const FfmpegTool: FC = () => {
       <h1 className='text-5xl sm:text-6xl italic font-bold font-serif py-0 sm:py-8 text-center '>
         Video encoder
       </h1>
-      <div className='flex items-center justify-center gap-16 mt-16 flex-wrap-reverse mb-16'>
-        <InputBox uploadedFile={uploadedFile} setUploadedFile={setUploadedFile} ffmpeg={ffmpeg} />
-        <CurrentStep />
-      </div>
       {errorMsg && (
-        <div className='flex justify-center italic items-center'>
-          <p className='text-accentPrimary text-lg font-bold mr-2'>Warning:</p>
-          <p>{errorMsg}</p>
+        <div className='flex justify-center font-serif items-center mt-8'>
+          <p>
+            <b className='text-accentPrimary mr-2'>Warning:</b>
+            {errorMsg}
+          </p>
           <button
             onClick={() => {
               //Dirty workaround to empty memory
@@ -146,6 +145,10 @@ const FfmpegTool: FC = () => {
           </button>
         </div>
       )}
+      <div className='flex items-center justify-center gap-16 mt-16 flex-wrap-reverse mb-16'>
+        <InputBox uploadedFile={uploadedFile} setUploadedFile={setUploadedFile} ffmpeg={ffmpeg} />
+        <CurrentStep />
+      </div>
     </div>
   );
 };
