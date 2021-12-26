@@ -29,6 +29,10 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the project.
 
+## Design
+
+You can find a hi-fi mockup design using Figma [here](https://www.figma.com/proto/uZMIyngoBi0jtGSPVP59Wf/Web---Video-Encoding?node-id=317%3A216&scaling=scale-down-width&page-id=317%3A215&starting-point-node-id=317%3A216&hide-ui=1). 
+
 ---
 
 #### References
