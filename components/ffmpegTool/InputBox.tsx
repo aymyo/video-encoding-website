@@ -6,28 +6,14 @@ import { useDropzone } from 'react-dropzone';
 import { formatBytes } from '../../utils/formatBytes';
 import { VideoOrImageDisplay } from './VideoOrImageDisplay';
 
-interface VideoUploaderProps {
+interface InputBoxProps {
   uploadedFile: File | null;
   setUploadedFile: Dispatch<SetStateAction<File | null>>;
   ffmpeg: FFmpeg;
 }
 
-export const VideoUploader: FC<VideoUploaderProps> = ({
-  uploadedFile,
-  setUploadedFile,
-  ffmpeg
-}) => {
+export const InputBox: FC<InputBoxProps> = ({ uploadedFile, setUploadedFile, ffmpeg }) => {
   const [uploadedSrc, setUploadedSrc] = useState('');
-  const { getRootProps, getInputProps } = useDropzone({
-    // Disable click and keydown behavior
-    noClick: true,
-    noKeyboard: true,
-    multiple: false,
-    onDrop: (acceptedFiles) => {
-      setUploadedSrc(URL.createObjectURL(acceptedFiles[0]));
-      setUploadedFile(acceptedFiles[0]);
-    }
-  });
 
   useEffect(
     () => () => {
@@ -75,6 +61,38 @@ export const VideoUploader: FC<VideoUploaderProps> = ({
 
   return !uploadedFile ? (
     <Box>
+      <VideoUploader
+        doSample={doSample}
+        setUploadedSrc={setUploadedSrc}
+        setUploadedFile={setUploadedFile}
+      />
+    </Box>
+  ) : (
+    <Box>
+      <VideoDetails uploadedFile={uploadedFile} uploadedSrc={uploadedSrc} />
+    </Box>
+  );
+};
+
+interface VideoUploaderProps {
+  doSample: () => Promise<void>;
+  setUploadedSrc: Dispatch<SetStateAction<string>>;
+  setUploadedFile: Dispatch<SetStateAction<File | null>>;
+}
+
+const VideoUploader: FC<VideoUploaderProps> = ({ doSample, setUploadedSrc, setUploadedFile }) => {
+  const { getRootProps, getInputProps } = useDropzone({
+    // Disable click and keydown behavior
+    noClick: true,
+    multiple: false,
+    onDrop: (acceptedFiles) => {
+      console.log(acceptedFiles);
+      setUploadedSrc(URL.createObjectURL(acceptedFiles[0]));
+      setUploadedFile(acceptedFiles[0]);
+    }
+  });
+  return (
+    <>
       <div className='flex items-center justify-center gap-4 text-sm mt-12'>
         <button className='btn font-normal' onClick={doSample}>
           &gt; Use sample
@@ -83,16 +101,25 @@ export const VideoUploader: FC<VideoUploaderProps> = ({
         <label htmlFor='uploader' className='btn cursor-pointer font-normal'>
           &gt; Upload video
         </label>
-        <input type='file' id='uploader' className=' hidden' {...getInputProps()} />
+        <input id='uploader' className=' hidden' {...getInputProps()} />
       </div>
       <div
-        className='h-32 flex justify-center items-center text-center font-serif text-accentPrimary italic'
-        {...getRootProps()}>
+        {...getRootProps()}
+        className='h-32 flex justify-center items-center text-center font-serif text-accentPrimary italic'>
         or drop them here!
       </div>
-    </Box>
-  ) : (
-    <Box>
+    </>
+  );
+};
+
+interface VideoDetailsProps {
+  uploadedFile: File;
+  uploadedSrc: string;
+}
+
+const VideoDetails: FC<VideoDetailsProps> = ({ uploadedFile, uploadedSrc }) => {
+  return (
+    <>
       <h2 className='font-serif text-xl text-center italic text-accentPrimary'>Input file</h2>
       <div className='flex items-center justify-center gap-8 px-4 mb-6'>
         <VideoOrImageDisplay
@@ -125,6 +152,6 @@ export const VideoUploader: FC<VideoUploaderProps> = ({
           </button>
         </div>
       </div>
-    </Box>
+    </>
   );
 };

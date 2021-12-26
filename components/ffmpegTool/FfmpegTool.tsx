@@ -4,10 +4,9 @@ import { FC, useEffect, useState } from 'react';
 
 import { EncodingProgress } from './EncodingProgress';
 import { EncodingResult } from './EncodingResult';
+import { InputBox } from './InputBox';
 import { SettingsForm } from './SettingsForm';
 import { ToolDescription } from './ToolDescription';
-import { VideoOrImageDisplay } from './VideoOrImageDisplay';
-import { VideoUploader } from './VideoUploader';
 
 export const mimeTypes = {
   ['']: 'error',
@@ -127,11 +126,7 @@ const FfmpegTool: FC = () => {
         Video encoder
       </h1>
       <div className='flex items-center justify-center gap-16 mt-16 flex-wrap-reverse mb-16'>
-        <VideoUploader
-          uploadedFile={uploadedFile}
-          setUploadedFile={setUploadedFile}
-          ffmpeg={ffmpeg}
-        />
+        <InputBox uploadedFile={uploadedFile} setUploadedFile={setUploadedFile} ffmpeg={ffmpeg} />
         <CurrentStep />
       </div>
     </div>
