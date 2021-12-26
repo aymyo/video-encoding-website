@@ -49,7 +49,7 @@ const FfmpegTool: FC = () => {
 
   // Check that the SharedArrayBuffer is available
   try {
-    const a = SharedArrayBuffer;
+    const arrayCheck = SharedArrayBuffer;
   } catch (e) {
     console.log(e instanceof ReferenceError); // true
     if (!errorMsg)
