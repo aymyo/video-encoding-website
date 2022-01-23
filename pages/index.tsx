@@ -29,7 +29,7 @@ const Homepage: NextPage<HomepageProps> = ({ docs }) => {
         <h3 className='text-center  text-xl sm:text-3xl italic my-12 sm:my-16'>
           Learning material <br />
           from the Pompeu Fabra University <br />
-          course taught by Javi Brines
+          &apos;Audio and Video Encoding Systems&apos; course
         </h3>
         <hr className=' border-t-1 border-bgSecondary w-1/3' />
       </section>
